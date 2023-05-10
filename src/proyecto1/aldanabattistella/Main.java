@@ -1,20 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package proyecto1.aldanabattistella;
 
-/**
- *
- * @author batti
- */
+import java.util.concurrent.Semaphore;
+
 public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Semaphore mainMutex = new Semaphore(1);
+        Hilo chasis = new Hilo("Chasis producidos: ", mainMutex);
+        Hilo carroceria = new Hilo("Carrocerías producidas: ", mainMutex);
+        Hilo motor = new Hilo("Motores producidos: ", mainMutex);
+        Hilo ruedas = new Hilo("Ruedas producidas: ", mainMutex);
+        Hilo accesorios = new Hilo("Accesorios producidos: ", mainMutex);
+        Hilo ensamblador = new Hilo("Vehículos ensamblados: ", mainMutex);
+        Hilo gerente = new Hilo("Días transcurridos: ", mainMutex);
+        Hilo director = new Hilo("Días restantes: ", mainMutex);
+        
+        chasis.start();
+        carroceria.start();
+        motor.start();
+        ruedas.start();
+        accesorios.start();
+        ensamblador.start();
+        gerente.start();
+        director.start();
     }
-    
+        
 }

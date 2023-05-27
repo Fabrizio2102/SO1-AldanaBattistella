@@ -1,11 +1,7 @@
 package proyecto1.aldanabattistella;
 
-/**
- *
- * @author batti
- */
 public class Almacen {
-    public int chasis, carrocerias, motores, ruedas, accesorios;
+    public int chasis, carrocerias, motores, ruedas, accesorios, vehiculos;
     public int maxChasis, maxCarrocerias, maxMotores, maxRuedas, maxAccesorios;
     
     public Almacen(int maxChasis, int maxCarrocerias, int maxMotores, int maxRuedas, int maxAccesorios){
@@ -14,6 +10,7 @@ public class Almacen {
         this.motores = 0;
         this.ruedas = 0;
         this.accesorios = 0;
+        this.vehiculos = 0;
         
         this.maxChasis = maxChasis;
         this.maxCarrocerias = maxCarrocerias;
@@ -29,7 +26,7 @@ public class Almacen {
                 
                 if (this.chasis < this.maxChasis){
                     this.chasis += parts;
-//                    System.out.println("Chasis: " + this.chasis);
+                    System.out.println("Chasis: " + this.chasis);
                 }
                 break;
             
@@ -37,6 +34,7 @@ public class Almacen {
                 
                 if (this.carrocerias < this.maxCarrocerias){
                     this.carrocerias += parts;
+                    System.out.println("Carrocerias: " + this.carrocerias);
                 }
                 break;
                 
@@ -44,6 +42,7 @@ public class Almacen {
                 
                 if (this.motores < this.maxMotores){
                     this.motores += parts;
+                    System.out.println("Motores: " + this.motores);
                 }
                 break;
                 
@@ -51,6 +50,7 @@ public class Almacen {
                 
                 if (this.ruedas < this.maxRuedas){
                     this.ruedas += parts;
+                    System.out.println("Ruedas: " + this.ruedas);
                 }
                 break;
                 
@@ -58,6 +58,7 @@ public class Almacen {
                 
                 if (this.accesorios < this.maxAccesorios){
                     this.accesorios += parts;
+                    System.out.println("Accesorios: " + this.accesorios);
                 }
                 break;
         }

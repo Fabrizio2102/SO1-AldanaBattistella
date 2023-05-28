@@ -1,7 +1,7 @@
 package proyecto1.aldanabattistella;
 
 public class Almacen {
-    public int chasis, carrocerias, motores, ruedas, accesorios, vehiculos;
+    public int chasis, carrocerias, motores, ruedas, accesorios, vehiculosE, vehiculosA;
     public int maxChasis, maxCarrocerias, maxMotores, maxRuedas, maxAccesorios;
     
     public Almacen(int maxChasis, int maxCarrocerias, int maxMotores, int maxRuedas, int maxAccesorios){
@@ -10,7 +10,8 @@ public class Almacen {
         this.motores = 0;
         this.ruedas = 0;
         this.accesorios = 0;
-        this.vehiculos = 0;
+        this.vehiculosE = 0;
+        this.vehiculosA = 0;
         
         this.maxChasis = maxChasis;
         this.maxCarrocerias = maxCarrocerias;
@@ -63,21 +64,34 @@ public class Almacen {
                 break;
                 
             case "vehiculo":
-                
-                this.vehiculos += parts;
-                deleteParts(name);
-                System.out.println("Vehiculos: " + this.vehiculos);
+                if(this.vehiculosE == (this.vehiculosA*2)){
+                    this.vehiculosE += parts;
+                    deleteParts(name, false);
+                    System.out.println("Vehículos estándar: " + this.vehiculosE);
+                }else if((this.vehiculosE > 0) && (this.vehiculosE % 2 == 0)){
+                    this.vehiculosA += parts;
+                    deleteParts(name, true);
+                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                }else{
+                    this.vehiculosE += parts;
+                    deleteParts(name, false);
+                    System.out.println("Vehículos estándar: " + this.vehiculosE);
+                }
                 break;
         }
     }
     
-    public void deleteParts(String marca){
+    public void deleteParts(String marca, boolean tipo){
         switch(marca){
             case "MA":
                 this.chasis--;
                 this.carrocerias--;
                 this.motores -= 2;
                 this.ruedas -= 4;
+                
+                if(tipo){
+                    this.accesorios -= 3;
+                }
                 break;
                 
             case "LA":
@@ -85,6 +99,10 @@ public class Almacen {
                 this.carrocerias--;
                 this.motores -= 6;
                 this.ruedas -= 5;
+                
+                if(tipo){
+                    this.accesorios--;
+                }
                 break;
         }
     }

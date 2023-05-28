@@ -45,7 +45,15 @@ public class Worker extends Thread {
                 switch(planta.name){
                     case "MA":
                         if((planta.almacen.chasis >= 1) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 2) && (planta.almacen.ruedas >= 4)){
-                            this.count += this.produxday;
+                            if(planta.almacen.vehiculosE == (planta.almacen.vehiculosA*2)){
+                                this.count += this.produxday;
+                            }else if((planta.almacen.vehiculosE > 0) && (planta.almacen.vehiculosE % 2 == 0)){
+                                if(planta.almacen.accesorios >= 3){
+                                    this.count += this.produxday;
+                                }
+                            }else{
+                                this.count += this.produxday;
+                            }                            
                         }
                         break;
                         

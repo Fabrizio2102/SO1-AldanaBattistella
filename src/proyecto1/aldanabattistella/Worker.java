@@ -40,12 +40,31 @@ public class Worker extends Thread {
     }
     
     public void produce(){
-        this.count += this.produxday;
+        switch(tipo){
+            case "vehiculo":
+                switch(planta.name){
+                    case "MA":
+                        if((planta.almacen.chasis >= 1) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 2) && (planta.almacen.ruedas >= 4)){
+                            this.count += this.produxday;
+                        }
+                        break;
+                        
+                    case "LA":
+                        if((planta.almacen.chasis >= 2) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 6) && (planta.almacen.ruedas >= 5)){
+                            this.count += this.produxday;
+                        }
+                        break;
+                }
+                break;
+            default:
+                this.count += this.produxday;
+                break;
+        }
         
         if(this.count >= 1){
             try{
                 planta.mutex.acquire();
-                planta.almacen.addParts(this.tipo, (int) this.count);
+                planta.almacen.addParts(this.tipo, (int) this.count, planta.name);
                 planta.mutex.release();
             }
             catch(InterruptedException ex){

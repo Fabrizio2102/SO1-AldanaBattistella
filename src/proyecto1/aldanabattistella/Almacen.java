@@ -19,7 +19,7 @@ public class Almacen {
         this.maxAccesorios = maxAccesorios;
     }
     
-    public void addParts(String type, int parts){
+    public void addParts(String type, int parts, String name){
         switch(type){
             
             case "chasis":
@@ -60,6 +60,31 @@ public class Almacen {
                     this.accesorios += parts;
                     System.out.println("Accesorios: " + this.accesorios);
                 }
+                break;
+                
+            case "vehiculo":
+                
+                this.vehiculos += parts;
+                deleteParts(name);
+                System.out.println("Vehiculos: " + this.vehiculos);
+                break;
+        }
+    }
+    
+    public void deleteParts(String marca){
+        switch(marca){
+            case "MA":
+                this.chasis--;
+                this.carrocerias--;
+                this.motores -= 2;
+                this.ruedas -= 4;
+                break;
+                
+            case "LA":
+                this.chasis -= 2;
+                this.carrocerias--;
+                this.motores -= 6;
+                this.ruedas -= 5;
                 break;
         }
     }

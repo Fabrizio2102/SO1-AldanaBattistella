@@ -3,7 +3,7 @@ package proyecto1.aldanabattistella;
 import java.util.concurrent.Semaphore;
 
 public class Planta {
-    private String name;
+    public String name;
     private int maxWorkers;
     private long dayDuration;
     private Worker[] workers;
@@ -32,5 +32,7 @@ public class Planta {
         ruedas.start();
         Worker accesorios = new Worker(408, "accesorio", 0.34f, this.dayDuration, this);
         accesorios.start();
+        Worker vehiculo = new Worker(600, "vehiculo", 0.5f, this.dayDuration, this);
+        vehiculo.start();
     }
 }

@@ -47,7 +47,7 @@ public class Worker extends Thread {
                         if((planta.almacen.chasis >= 1) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 2) && (planta.almacen.ruedas >= 4)){
                             if(planta.almacen.vehiculosE == (planta.almacen.vehiculosA*2)){
                                 this.count += this.produxday;
-                            }else if((planta.almacen.vehiculosE > 0) && (planta.almacen.vehiculosE % 2 == 0)){
+                            }else if((planta.almacen.vehiculosE % 2 == 0)){
                                 if(planta.almacen.accesorios >= 3){
                                     this.count += this.produxday;
                                 }
@@ -59,7 +59,15 @@ public class Worker extends Thread {
                         
                     case "LA":
                         if((planta.almacen.chasis >= 2) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 6) && (planta.almacen.ruedas >= 5)){
-                            this.count += this.produxday;
+                            if(planta.almacen.vehiculosE == (planta.almacen.vehiculosA*3)){
+                                this.count += this.produxday;
+                            }else if((planta.almacen.vehiculosE % 3 == 0)){
+                                if(planta.almacen.accesorios >= 1){
+                                    this.count += this.produxday;
+                                }
+                            }else{
+                                this.count += this.produxday;
+                            }
                         }
                         break;
                 }

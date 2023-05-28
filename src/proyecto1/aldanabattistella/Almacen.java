@@ -42,16 +42,26 @@ public class Almacen {
             case "motor":
                 
                 if (this.motores < this.maxMotores){
-                    this.motores += parts;
-                    System.out.println("Motores: " + this.motores);
+                    if((this.motores + parts) > this.maxMotores){
+                        this.motores = this.maxMotores;
+                        System.out.println("Motores: " + this.motores);
+                    }else{
+                        this.motores += parts;
+                        System.out.println("Motores: " + this.motores);
+                    }
                 }
                 break;
                 
             case "rueda":
                 
                 if (this.ruedas < this.maxRuedas){
-                    this.ruedas += parts;
-                    System.out.println("Ruedas: " + this.ruedas);
+                    if((this.ruedas + parts) > this.maxRuedas){
+                        this.ruedas = this.maxRuedas;
+                        System.out.println("Ruedas: " + this.ruedas);
+                    }else{
+                        this.ruedas += parts;
+                        System.out.println("Ruedas: " + this.ruedas);
+                    }
                 }
                 break;
                 
@@ -64,18 +74,38 @@ public class Almacen {
                 break;
                 
             case "vehiculo":
-                if(this.vehiculosE == (this.vehiculosA*2)){
-                    this.vehiculosE += parts;
-                    deleteParts(name, false);
-                    System.out.println("Vehículos estándar: " + this.vehiculosE);
-                }else if((this.vehiculosE > 0) && (this.vehiculosE % 2 == 0)){
-                    this.vehiculosA += parts;
-                    deleteParts(name, true);
-                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
-                }else{
-                    this.vehiculosE += parts;
-                    deleteParts(name, false);
-                    System.out.println("Vehículos estándar: " + this.vehiculosE);
+                switch(name){
+                    case "MA":
+                        if(this.vehiculosE == (this.vehiculosA*2)){
+                            this.vehiculosE += parts;
+                            deleteParts(name, false);
+                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        }else if((this.vehiculosE % 2 == 0)){
+                            this.vehiculosA += parts;
+                            deleteParts(name, true);
+                            System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                        }else{
+                            this.vehiculosE += parts;
+                            deleteParts(name, false);
+                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        }
+                        break;
+                        
+                    case "LA":
+                        if(this.vehiculosE == (this.vehiculosA*3)){
+                            this.vehiculosE += parts;
+                            deleteParts(name, false);
+                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        }else if((this.vehiculosE % 3 == 0)){
+                            this.vehiculosA += parts;
+                            deleteParts(name, true);
+                            System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                        }else{
+                            this.vehiculosE += parts;
+                            deleteParts(name, false);
+                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        }
+                        break;
                 }
                 break;
         }

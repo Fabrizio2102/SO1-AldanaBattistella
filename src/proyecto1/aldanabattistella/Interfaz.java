@@ -30,7 +30,33 @@ public class Interfaz extends javax.swing.JFrame {
     private void initComponents() {
 
         Title = new javax.swing.JLabel();
-        Title1 = new javax.swing.JLabel();
+        Subtitle = new javax.swing.JLabel();
+        empleadosPanel = new javax.swing.JPanel();
+        ruedasPanel = new javax.swing.JPanel();
+        ruedas = new javax.swing.JLabel();
+        MARuedas = new javax.swing.JSpinner();
+        LARuedas = new javax.swing.JSpinner();
+        accesoriosPanel = new javax.swing.JPanel();
+        accesorios = new javax.swing.JLabel();
+        MAAccesorios = new javax.swing.JSpinner();
+        LAAccesorios = new javax.swing.JSpinner();
+        ensambladoresPanel = new javax.swing.JPanel();
+        ensambladores = new javax.swing.JLabel();
+        MAEnsambladores = new javax.swing.JSpinner();
+        LAEnsambladores = new javax.swing.JSpinner();
+        Motor = new javax.swing.JPanel();
+        motor = new javax.swing.JLabel();
+        MAMotor = new javax.swing.JSpinner();
+        LAMotor = new javax.swing.JSpinner();
+        chasisPanel = new javax.swing.JPanel();
+        chasis = new javax.swing.JLabel();
+        MAChasis = new javax.swing.JSpinner();
+        LAChasis = new javax.swing.JSpinner();
+        carroceriaPanel = new javax.swing.JPanel();
+        carroceria = new javax.swing.JLabel();
+        MACarroceria = new javax.swing.JSpinner();
+        LACarroceria = new javax.swing.JSpinner();
+        tituloEmpleados = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -40,10 +66,79 @@ public class Interfaz extends javax.swing.JFrame {
         Title.setText("Análisis de Plantas");
         getContentPane().add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, -1));
 
-        Title1.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        Title1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Title1.setText("Maserati y Lamboghini");
-        getContentPane().add(Title1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, -1));
+        Subtitle.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        Subtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Subtitle.setText("Maserati y Lamboghini");
+        getContentPane().add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 400, -1));
+
+        empleadosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ruedasPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ruedas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ruedas.setText("Ruedas");
+        ruedasPanel.add(ruedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        ruedasPanel.add(MARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        ruedasPanel.add(LARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(ruedasPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
+
+        accesoriosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        accesorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        accesorios.setText("Accesorios");
+        accesoriosPanel.add(accesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        accesoriosPanel.add(MAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        accesoriosPanel.add(LAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(accesoriosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, -1, -1));
+
+        ensambladoresPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ensambladores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ensambladores.setText("Ensambladores");
+        ensambladoresPanel.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        ensambladoresPanel.add(MAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        ensambladoresPanel.add(LAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(ensambladoresPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 170, -1, -1));
+
+        Motor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        motor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        motor.setText("Motor");
+        Motor.add(motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        Motor.add(MAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        Motor.add(LAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(Motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
+
+        chasisPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        chasis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chasis.setText("Chasis");
+        chasisPanel.add(chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        chasisPanel.add(MAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        chasisPanel.add(LAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(chasisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+
+        carroceriaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        carroceria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        carroceria.setText("Carroceria");
+        carroceriaPanel.add(carroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        carroceriaPanel.add(MACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        carroceriaPanel.add(LACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+
+        empleadosPanel.add(carroceriaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, -1));
+
+        tituloEmpleados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tituloEmpleados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        tituloEmpleados.setText("Empleados");
+        empleadosPanel.add(tituloEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 20));
+
+        getContentPane().add(empleadosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 74, 160, 220));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -84,7 +179,33 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner LAAccesorios;
+    private javax.swing.JSpinner LACarroceria;
+    private javax.swing.JSpinner LAChasis;
+    private javax.swing.JSpinner LAEnsambladores;
+    private javax.swing.JSpinner LAMotor;
+    private javax.swing.JSpinner LARuedas;
+    private javax.swing.JSpinner MAAccesorios;
+    private javax.swing.JSpinner MACarroceria;
+    private javax.swing.JSpinner MAChasis;
+    private javax.swing.JSpinner MAEnsambladores;
+    private javax.swing.JSpinner MAMotor;
+    private javax.swing.JSpinner MARuedas;
+    private javax.swing.JPanel Motor;
+    private javax.swing.JLabel Subtitle;
     private javax.swing.JLabel Title;
-    private javax.swing.JLabel Title1;
+    private javax.swing.JLabel accesorios;
+    private javax.swing.JPanel accesoriosPanel;
+    private javax.swing.JLabel carroceria;
+    private javax.swing.JPanel carroceriaPanel;
+    private javax.swing.JLabel chasis;
+    private javax.swing.JPanel chasisPanel;
+    private javax.swing.JPanel empleadosPanel;
+    private javax.swing.JLabel ensambladores;
+    private javax.swing.JPanel ensambladoresPanel;
+    private javax.swing.JLabel motor;
+    private javax.swing.JLabel ruedas;
+    private javax.swing.JPanel ruedasPanel;
+    private javax.swing.JLabel tituloEmpleados;
     // End of variables declaration//GEN-END:variables
 }

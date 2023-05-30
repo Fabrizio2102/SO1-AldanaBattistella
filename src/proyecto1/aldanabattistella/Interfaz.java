@@ -29,8 +29,9 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        daysLeftPanel = new javax.swing.JPanel();
+        daysLeft = new javax.swing.JLabel();
+        daysLeftN = new javax.swing.JLabel();
         Title = new javax.swing.JLabel();
         Subtitle = new javax.swing.JLabel();
         disponibilidadPanel = new javax.swing.JPanel();
@@ -85,18 +86,6 @@ public class Interfaz extends javax.swing.JFrame {
         MACarroceria = new javax.swing.JSpinner();
         LACarroceria = new javax.swing.JSpinner();
         tituloEmpleados = new javax.swing.JLabel();
-        maxAlmacenaje = new javax.swing.JPanel();
-        MaxAlmacenajeTitle = new javax.swing.JLabel();
-        chasisMax = new javax.swing.JLabel();
-        carroceriaMax = new javax.swing.JLabel();
-        motorMax = new javax.swing.JLabel();
-        ruedasMax = new javax.swing.JLabel();
-        accesoriosMax = new javax.swing.JLabel();
-        motorMaxN = new javax.swing.JLabel();
-        chasisMaxN = new javax.swing.JLabel();
-        carroceriaMaxN = new javax.swing.JLabel();
-        accesoriosMaxN = new javax.swing.JLabel();
-        ruedasMaxN = new javax.swing.JLabel();
         listos = new javax.swing.JPanel();
         listosTitle = new javax.swing.JLabel();
         listosTitleLA = new javax.swing.JLabel();
@@ -109,16 +98,52 @@ public class Interfaz extends javax.swing.JFrame {
         NlistosEstLA = new javax.swing.JLabel();
         AccLA = new javax.swing.JLabel();
         NlistosAccLA = new javax.swing.JLabel();
+        maxAlmacenaje = new javax.swing.JPanel();
+        MaxAlmacenajeTitle = new javax.swing.JLabel();
+        chasisMax = new javax.swing.JLabel();
+        carroceriaMax = new javax.swing.JLabel();
+        motorMax = new javax.swing.JLabel();
+        ruedasMax = new javax.swing.JLabel();
+        accesoriosMax = new javax.swing.JLabel();
+        motorMaxN = new javax.swing.JLabel();
+        chasisMaxN = new javax.swing.JLabel();
+        carroceriaMaxN = new javax.swing.JLabel();
+        accesoriosMaxN = new javax.swing.JLabel();
+        ruedasMaxN = new javax.swing.JLabel();
+        gerDir = new javax.swing.JPanel();
+        gerDirTitle = new javax.swing.JLabel();
+        laborDirMA = new javax.swing.JLabel();
+        laborGerMA = new javax.swing.JLabel();
+        laborGerLA = new javax.swing.JLabel();
+        laborDirLA = new javax.swing.JLabel();
+        gdLA = new javax.swing.JLabel();
+        gdMA = new javax.swing.JLabel();
+        dirTitle = new javax.swing.JLabel();
+        gerTitle = new javax.swing.JLabel();
+        faltasTitle = new javax.swing.JLabel();
+        nFaltasTitle = new javax.swing.JLabel();
+        sueldoFaltaLA = new javax.swing.JLabel();
+        nFaltasLA = new javax.swing.JLabel();
+        nFaltasMA = new javax.swing.JLabel();
+        sueldoFaltaMA = new javax.swing.JLabel();
+        nSueldoFaltaTitle = new javax.swing.JLabel();
+        gdMA1 = new javax.swing.JLabel();
+        gdLA1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        daysLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Días para la entrega: ");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, -1));
+        daysLeft.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        daysLeft.setText("Días para la entrega: ");
+        daysLeftPanel.add(daysLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 190, 50));
+        daysLeftN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        daysLeftN.setText("0");
+        daysLeftPanel.add(daysLeftN, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 30, -1));
+
+        getContentPane().add(daysLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 140, 40));
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -227,7 +252,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         disponibilidadPanel.add(motorPanelDispon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
 
-        getContentPane().add(disponibilidadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 160, 220));
+        getContentPane().add(disponibilidadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 160, 220));
 
         empleadosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -306,55 +331,7 @@ public class Interfaz extends javax.swing.JFrame {
         tituloEmpleados.setText("Empleados");
         empleadosPanel.add(tituloEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 20));
 
-        getContentPane().add(empleadosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 160, 220));
-
-        maxAlmacenaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        MaxAlmacenajeTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        MaxAlmacenajeTitle.setText("Cantidad Máxima de Almacenaje");
-        maxAlmacenaje.add(MaxAlmacenajeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 20));
-
-        chasisMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        chasisMax.setText("Chasis");
-        maxAlmacenaje.add(chasisMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 100, 20));
-
-        carroceriaMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        carroceriaMax.setText("Carrocería");
-        maxAlmacenaje.add(carroceriaMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 100, 20));
-
-        motorMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        motorMax.setText("Motor");
-        maxAlmacenaje.add(motorMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 100, 20));
-
-        ruedasMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        ruedasMax.setText("Ruedas");
-        maxAlmacenaje.add(ruedasMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 20));
-
-        accesoriosMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        accesoriosMax.setText("Accesorios");
-        maxAlmacenaje.add(accesoriosMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 100, 20));
-
-        motorMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        motorMaxN.setText("0");
-        maxAlmacenaje.add(motorMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 30, 20));
-
-        chasisMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        chasisMaxN.setText("0");
-        maxAlmacenaje.add(chasisMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 30, 20));
-
-        carroceriaMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        carroceriaMaxN.setText("0");
-        maxAlmacenaje.add(carroceriaMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 30, 20));
-
-        accesoriosMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        accesoriosMaxN.setText("0");
-        maxAlmacenaje.add(accesoriosMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 30, 20));
-
-        ruedasMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ruedasMaxN.setText("0");
-        maxAlmacenaje.add(ruedasMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 30, 20));
-
-        getContentPane().add(maxAlmacenaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 210, 160));
+        getContentPane().add(empleadosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 160, 220));
 
         listos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -402,7 +379,147 @@ public class Interfaz extends javax.swing.JFrame {
         NlistosAccLA.setText("0");
         listos.add(NlistosAccLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 30, -1));
 
-        getContentPane().add(listos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 230, 210, -1));
+        getContentPane().add(listos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 210, -1));
+
+        maxAlmacenaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        MaxAlmacenajeTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        MaxAlmacenajeTitle.setText("Cantidad Máxima de Almacenaje");
+        maxAlmacenaje.add(MaxAlmacenajeTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 20));
+
+        chasisMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        chasisMax.setText("Chasis");
+        maxAlmacenaje.add(chasisMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 100, 20));
+
+        carroceriaMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        carroceriaMax.setText("Carrocería");
+        maxAlmacenaje.add(carroceriaMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 100, 20));
+
+        motorMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        motorMax.setText("Motor");
+        maxAlmacenaje.add(motorMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 100, 20));
+
+        ruedasMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        ruedasMax.setText("Ruedas");
+        maxAlmacenaje.add(ruedasMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 100, 20));
+
+        accesoriosMax.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        accesoriosMax.setText("Accesorios");
+        maxAlmacenaje.add(accesoriosMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 100, 20));
+
+        motorMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        motorMaxN.setText("0");
+        maxAlmacenaje.add(motorMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 30, 20));
+
+        chasisMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        chasisMaxN.setText("0");
+        maxAlmacenaje.add(chasisMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 30, 20));
+
+        carroceriaMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        carroceriaMaxN.setText("0");
+        maxAlmacenaje.add(carroceriaMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 30, 20));
+
+        accesoriosMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        accesoriosMaxN.setText("0");
+        maxAlmacenaje.add(accesoriosMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 30, 20));
+
+        ruedasMaxN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ruedasMaxN.setText("0");
+        maxAlmacenaje.add(ruedasMaxN, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, 30, 20));
+
+        getContentPane().add(maxAlmacenaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 210, 160));
+
+        gerDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        gerDirTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gerDirTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gerDirTitle.setText("Gerente y Director");
+        gerDir.add(gerDirTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 540, 20));
+
+        laborDirMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        laborDirMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        laborDirMA.setText("...");
+        gerDir.add(laborDirMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 20, -1));
+
+        laborGerMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        laborGerMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        laborGerMA.setText("...");
+        gerDir.add(laborGerMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 20, -1));
+
+        laborGerLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        laborGerLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        laborGerLA.setText("...");
+        gerDir.add(laborGerLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 20, -1));
+
+        laborDirLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        laborDirLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        laborDirLA.setText("...");
+        gerDir.add(laborDirLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 20, -1));
+
+        gdLA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gdLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gdLA.setText("LA");
+        gerDir.add(gdLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 30, 20));
+
+        gdMA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gdMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gdMA.setText("MA");
+        gerDir.add(gdMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 30, 20));
+
+        dirTitle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        dirTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        dirTitle.setText("DIRECTOR");
+        gerDir.add(dirTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 270, -1));
+
+        gerTitle.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        gerTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gerTitle.setText("GERENTE");
+        gerDir.add(gerTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 270, -1));
+
+        faltasTitle.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        faltasTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        faltasTitle.setText("Faltas al gerente");
+        gerDir.add(faltasTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 270, -1));
+
+        nFaltasTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nFaltasTitle.setText("Cantidad");
+        gerDir.add(nFaltasTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 270, -1));
+
+        sueldoFaltaLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        sueldoFaltaLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sueldoFaltaLA.setText("...");
+        gerDir.add(sueldoFaltaLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 80, 20, -1));
+
+        nFaltasLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        nFaltasLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nFaltasLA.setText("...");
+        gerDir.add(nFaltasLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 20, -1));
+
+        nFaltasMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        nFaltasMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nFaltasMA.setText("...");
+        gerDir.add(nFaltasMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 20, -1));
+
+        sueldoFaltaMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        sueldoFaltaMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sueldoFaltaMA.setText("...");
+        gerDir.add(sueldoFaltaMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 20, -1));
+
+        nSueldoFaltaTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        nSueldoFaltaTitle.setText("Sueldo descontado");
+        gerDir.add(nSueldoFaltaTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 270, -1));
+
+        gdMA1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gdMA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gdMA1.setText("MA");
+        gerDir.add(gdMA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, 30, 20));
+
+        gdLA1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        gdLA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gdLA1.setText("LA");
+        gerDir.add(gdLA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 30, 20));
+
+        getContentPane().add(gerDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 660, 120));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -495,6 +612,10 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel chasisMaxN;
     private javax.swing.JPanel chasisPanel;
     private javax.swing.JPanel chasisPanelDispon;
+    private javax.swing.JLabel daysLeft;
+    private javax.swing.JLabel daysLeftN;
+    private javax.swing.JPanel daysLeftPanel;
+    private javax.swing.JLabel dirTitle;
     private javax.swing.JLabel disponLA;
     private javax.swing.JLabel disponMA;
     private javax.swing.JPanel disponibilidadPanel;
@@ -503,8 +624,18 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JPanel empleadosPanel;
     private javax.swing.JLabel ensambladores;
     private javax.swing.JPanel ensambladoresPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel faltasTitle;
+    private javax.swing.JLabel gdLA;
+    private javax.swing.JLabel gdLA1;
+    private javax.swing.JLabel gdMA;
+    private javax.swing.JLabel gdMA1;
+    private javax.swing.JPanel gerDir;
+    private javax.swing.JLabel gerDirTitle;
+    private javax.swing.JLabel gerTitle;
+    private javax.swing.JLabel laborDirLA;
+    private javax.swing.JLabel laborDirMA;
+    private javax.swing.JLabel laborGerLA;
+    private javax.swing.JLabel laborGerMA;
     private javax.swing.JPanel listos;
     private javax.swing.JLabel listosTitle;
     private javax.swing.JLabel listosTitleLA;
@@ -515,12 +646,18 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel motorMax;
     private javax.swing.JLabel motorMaxN;
     private javax.swing.JPanel motorPanelDispon;
+    private javax.swing.JLabel nFaltasLA;
+    private javax.swing.JLabel nFaltasMA;
+    private javax.swing.JLabel nFaltasTitle;
+    private javax.swing.JLabel nSueldoFaltaTitle;
     private javax.swing.JLabel ruedas;
     private javax.swing.JLabel ruedasDispon;
     private javax.swing.JLabel ruedasMax;
     private javax.swing.JLabel ruedasMaxN;
     private javax.swing.JPanel ruedasPanel;
     private javax.swing.JPanel ruedasPanelDispon;
+    private javax.swing.JLabel sueldoFaltaLA;
+    private javax.swing.JLabel sueldoFaltaMA;
     private javax.swing.JLabel tituloDispon;
     private javax.swing.JLabel tituloEmpleados;
     // End of variables declaration//GEN-END:variables

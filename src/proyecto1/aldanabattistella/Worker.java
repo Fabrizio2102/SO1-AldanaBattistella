@@ -40,42 +40,7 @@ public class Worker extends Thread {
     }
     
     public void produce(){
-        switch(tipo){
-            case "vehiculo":
-                switch(planta.name){
-                    case "MA":
-                        if((planta.almacen.chasis >= 1) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 2) && (planta.almacen.ruedas >= 4)){
-                            if(planta.almacen.vehiculosE == (planta.almacen.vehiculosA*2)){
-                                this.count += this.produxday;
-                            }else if((planta.almacen.vehiculosE % 2 == 0)){
-                                if(planta.almacen.accesorios >= 3){
-                                    this.count += this.produxday;
-                                }
-                            }else{
-                                this.count += this.produxday;
-                            }                            
-                        }
-                        break;
-                        
-                    case "LA":
-                        if((planta.almacen.chasis >= 2) && (planta.almacen.carrocerias >= 1) && (planta.almacen.motores >= 6) && (planta.almacen.ruedas >= 5)){
-                            if(planta.almacen.vehiculosE == (planta.almacen.vehiculosA*3)){
-                                this.count += this.produxday;
-                            }else if((planta.almacen.vehiculosE % 3 == 0)){
-                                if(planta.almacen.accesorios >= 1){
-                                    this.count += this.produxday;
-                                }
-                            }else{
-                                this.count += this.produxday;
-                            }
-                        }
-                        break;
-                }
-                break;
-            default:
-                this.count += this.produxday;
-                break;
-        }
+        this.count += this.produxday;
         
         if(this.count >= 1){
             try{

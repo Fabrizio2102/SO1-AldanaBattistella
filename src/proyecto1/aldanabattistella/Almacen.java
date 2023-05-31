@@ -76,34 +76,42 @@ public class Almacen {
             case "vehiculo":
                 switch(name){
                     case "MA":
-                        if(this.vehiculosE == (this.vehiculosA*2)){
-                            this.vehiculosE += parts;
-                            deleteParts(name, false);
-                            System.out.println("Vehículos estándar: " + this.vehiculosE);
-                        }else if((this.vehiculosE % 2 == 0)){
-                            this.vehiculosA += parts;
-                            deleteParts(name, true);
-                            System.out.println("Vehículos con accesorios: " + this.vehiculosA);
-                        }else{
-                            this.vehiculosE += parts;
-                            deleteParts(name, false);
-                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        if((this.carrocerias>=1) && (this.chasis>=1) && (this.motores>=2) && (this.ruedas>=4)){
+                            if(this.vehiculosE == (this.vehiculosA*2)){
+                                this.vehiculosE += parts;
+                                deleteParts(name, false);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                            }else if((this.vehiculosE % 2 == 0)){
+                                if(this.accesorios>=3){
+                                    this.vehiculosA += parts;
+                                    deleteParts(name, true);
+                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                }
+                            }else{
+                                this.vehiculosE += parts;
+                                deleteParts(name, false);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                            }
                         }
                         break;
                         
                     case "LA":
-                        if(this.vehiculosE == (this.vehiculosA*3)){
-                            this.vehiculosE += parts;
-                            deleteParts(name, false);
-                            System.out.println("Vehículos estándar: " + this.vehiculosE);
-                        }else if((this.vehiculosE % 3 == 0)){
-                            this.vehiculosA += parts;
-                            deleteParts(name, true);
-                            System.out.println("Vehículos con accesorios: " + this.vehiculosA);
-                        }else{
-                            this.vehiculosE += parts;
-                            deleteParts(name, false);
-                            System.out.println("Vehículos estándar: " + this.vehiculosE);
+                        if((this.carrocerias>=1) && (this.chasis>=2) && (this.motores>=6) && (this.ruedas>=5)){
+                            if(this.vehiculosE == (this.vehiculosA*3)){
+                                this.vehiculosE += parts;
+                                deleteParts(name, false);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                            }else if((this.vehiculosE % 3 == 0)){
+                                if(this.accesorios>=1){
+                                    this.vehiculosA += parts;
+                                    deleteParts(name, true);
+                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                }
+                            }else{
+                                this.vehiculosE += parts;
+                                deleteParts(name, false);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                            }
                         }
                         break;
                 }

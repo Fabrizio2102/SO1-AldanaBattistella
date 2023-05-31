@@ -271,7 +271,21 @@ public class Interfaz extends javax.swing.JFrame {
         ruedas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ruedas.setText("Ruedas");
         ruedasPanel.add(ruedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MARuedas.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MARuedas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MARuedasStateChanged(evt);
+            }
+        });
         ruedasPanel.add(MARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LARuedas.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LARuedas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LARuedasStateChanged(evt);
+            }
+        });
         ruedasPanel.add(LARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(ruedasPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, -1, -1));
@@ -281,7 +295,21 @@ public class Interfaz extends javax.swing.JFrame {
         accesorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accesorios.setText("Accesorios");
         accesoriosPanel.add(accesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MAAccesorios.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAAccesorios.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MAAccesoriosStateChanged(evt);
+            }
+        });
         accesoriosPanel.add(MAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LAAccesorios.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAAccesorios.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LAAccesoriosStateChanged(evt);
+            }
+        });
         accesoriosPanel.add(LAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(accesoriosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, -1, -1));
@@ -291,7 +319,21 @@ public class Interfaz extends javax.swing.JFrame {
         ensambladores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ensambladores.setText("Ensambladores");
         ensambladoresPanel.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MAEnsambladores.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAEnsambladores.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MAEnsambladoresStateChanged(evt);
+            }
+        });
         ensambladoresPanel.add(MAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LAEnsambladores.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAEnsambladores.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LAEnsambladoresStateChanged(evt);
+            }
+        });
         ensambladoresPanel.add(LAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(ensambladoresPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, -1));
@@ -301,7 +343,21 @@ public class Interfaz extends javax.swing.JFrame {
         motor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motor.setText("Motor");
         Motor.add(motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MAMotor.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAMotor.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MAMotorStateChanged(evt);
+            }
+        });
         Motor.add(MAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LAMotor.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAMotor.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LAMotorStateChanged(evt);
+            }
+        });
         Motor.add(LAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(Motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, -1, -1));
@@ -311,7 +367,21 @@ public class Interfaz extends javax.swing.JFrame {
         chasis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         chasis.setText("Chasis");
         chasisPanel.add(chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MAChasis.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        MAChasis.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MAChasisStateChanged(evt);
+            }
+        });
         chasisPanel.add(MAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LAChasis.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        LAChasis.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LAChasisStateChanged(evt);
+            }
+        });
         chasisPanel.add(LAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(chasisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, -1, -1));
@@ -321,7 +391,21 @@ public class Interfaz extends javax.swing.JFrame {
         carroceria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         carroceria.setText("Carroceria");
         carroceriaPanel.add(carroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        MACarroceria.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        MACarroceria.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                MACarroceriaStateChanged(evt);
+            }
+        });
         carroceriaPanel.add(MACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        LACarroceria.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        LACarroceria.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                LACarroceriaStateChanged(evt);
+            }
+        });
         carroceriaPanel.add(LACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         empleadosPanel.add(carroceriaPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
@@ -524,6 +608,102 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void MAChasisStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAChasisStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MAChasisStateChanged
+
+    private void MACarroceriaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MACarroceriaStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MACarroceriaStateChanged
+
+    private void MAMotorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAMotorStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MAMotorStateChanged
+
+    private void MARuedasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MARuedasStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MARuedasStateChanged
+
+    private void MAAccesoriosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAAccesoriosStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MAAccesoriosStateChanged
+
+    private void MAEnsambladoresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAEnsambladoresStateChanged
+        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        }
+    }//GEN-LAST:event_MAEnsambladoresStateChanged
+
+    private void LAChasisStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAChasisStateChanged
+        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        }
+    }//GEN-LAST:event_LAChasisStateChanged
+
+    private void LACarroceriaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LACarroceriaStateChanged
+        
+    }//GEN-LAST:event_LACarroceriaStateChanged
+
+    private void LAMotorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAMotorStateChanged
+        
+    }//GEN-LAST:event_LAMotorStateChanged
+
+    private void LARuedasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LARuedasStateChanged
+        
+    }//GEN-LAST:event_LARuedasStateChanged
+
+    private void LAAccesoriosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAAccesoriosStateChanged
+        
+    }//GEN-LAST:event_LAAccesoriosStateChanged
+
+    private void LAEnsambladoresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAEnsambladoresStateChanged
+        
+    }//GEN-LAST:event_LAEnsambladoresStateChanged
+
+    public boolean getSum(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+        int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
+        return sum > 14;
+    }
+    
+    public void reducir(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+        System.out.println("Reduciendo ");
+        int maxN = (Integer)spinner1.getValue();
+        javax.swing.JSpinner maxSpinner = spinner1;
+        
+        if (maxN < (Integer)spinner2.getValue()){
+            maxN = (Integer)spinner2.getValue();
+            maxSpinner = spinner2;
+        }
+        if (maxN < (Integer)spinner3.getValue()){
+            maxN = (Integer)spinner3.getValue();
+            maxSpinner = spinner3;
+        }
+        if (maxN < (Integer)spinner4.getValue()){
+            maxN = (Integer)spinner4.getValue();
+            maxSpinner = spinner4;
+        }
+        if (maxN < (Integer)spinner5.getValue()){
+            maxN = (Integer)spinner5.getValue();
+            maxSpinner = spinner5;
+        }
+        if (maxN < (Integer)spinner6.getValue()){
+            maxSpinner = spinner6;
+        }
+        
+        maxSpinner.setValue(maxN-1);
+       
+    }
+    
     /**
      * @param args the command line arguments
      */

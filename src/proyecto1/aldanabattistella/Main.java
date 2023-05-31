@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         
-        MaPlant = new Planta("MA", 14, 1000);
+        MaPlant = new Planta("MA", 14, 1000, 30, 3, 3, 2, 2, 2, 2);
         
     }
         

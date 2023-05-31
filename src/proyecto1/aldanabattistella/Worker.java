@@ -24,17 +24,15 @@ public class Worker extends Thread {
     
     @Override
     public void run(){
+        
         while(true){
-            
-            while(true){
-                try{
-                    sleep(this.dayDuration);
-                    this.money += this.salary;
-                    produce();
-                }
-                catch(InterruptedException ex){
-                    Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
-                }
+            try{
+                sleep(this.dayDuration);
+                this.money += this.salary;
+                produce();
+            }
+            catch(InterruptedException ex){
+                Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

@@ -44,11 +44,10 @@ public class Almacen {
                 if (this.motores < this.maxMotores){
                     if((this.motores + parts) > this.maxMotores){
                         this.motores = this.maxMotores;
-                        System.out.println("Motores: " + this.motores);
                     }else{
                         this.motores += parts;
-                        System.out.println("Motores: " + this.motores);
                     }
+                    System.out.println("Motores: " + this.motores);
                 }
                 break;
                 
@@ -57,11 +56,10 @@ public class Almacen {
                 if (this.ruedas < this.maxRuedas){
                     if((this.ruedas + parts) > this.maxRuedas){
                         this.ruedas = this.maxRuedas;
-                        System.out.println("Ruedas: " + this.ruedas);
                     }else{
                         this.ruedas += parts;
-                        System.out.println("Ruedas: " + this.ruedas);
                     }
+                    System.out.println("Ruedas: " + this.ruedas);
                 }
                 break;
                 
@@ -143,5 +141,10 @@ public class Almacen {
                 }
                 break;
         }
+    }
+    
+    public void sendCars(){
+        this.vehiculosA = 0;
+        this.vehiculosE = 0;
     }
 }

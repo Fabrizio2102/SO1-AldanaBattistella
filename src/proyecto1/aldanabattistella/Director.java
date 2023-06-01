@@ -73,6 +73,7 @@ public class Director extends Thread {
             planta.almacen.sendCars(planta.name);
             planta.mutex.release();
             planta.diasRestantes = planta.diasEntrega;
+            sleep(this.dayDuration);
             this.vigilando = false;
             this.trabajando = true;
             this.enviando = false;

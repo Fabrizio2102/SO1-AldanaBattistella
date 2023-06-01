@@ -12,6 +12,7 @@ public class Worker extends Thread {
     private long dayDuration;
     private Planta planta;
     
+    
     public Worker(int salary, String type, float production, long duration, Planta plant){
         this.tipo = type;
         this.produxday = production;
@@ -20,6 +21,8 @@ public class Worker extends Thread {
         this.planta = plant;
         this.count = 0;
         this.money = 0;
+        
+       
     }
     
     @Override

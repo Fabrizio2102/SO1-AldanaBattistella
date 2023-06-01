@@ -13,14 +13,15 @@ public class Planta {
     public Manager gerente;
     public Semaphore mutex;
     
-    public Planta(String name, int max, long duration, int dias, int ch, int ca, int mo, int ru, int ac, int en){
+    
+    public Planta(String name, int max, long duration, int dias, int ch, int ca, int mo, int ru, int ac, int en, Interfaz i){
         this.name = name;
         this.diasEntrega = dias;
         this.diasRestantes = dias;
         this.maxWorkers = max;
         this.dayDuration = duration;
         this.workers = new Worker[maxWorkers];
-        this.almacen = new Almacen(25, 20, 55, 35, 10);
+        this.almacen = new Almacen(25, 20, 55, 35, 10, i);
         this.mutex = new Semaphore(1);
         
         this.chasisI = ch;
@@ -29,6 +30,8 @@ public class Planta {
         this.ruedasI = ru;
         this.accesoriosI = ac;
         this.ensambladoresI = en;
+        
+       
         
         createWorkers();
     }

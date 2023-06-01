@@ -4,8 +4,9 @@ public class Almacen {
     public int chasis, carrocerias, motores, ruedas, accesorios, vehiculosE, vehiculosA;
     public int maxChasis, maxCarrocerias, maxMotores, maxRuedas, maxAccesorios;
     public long gananciaBruta;
+    Interfaz i;
     
-    public Almacen(int maxChasis, int maxCarrocerias, int maxMotores, int maxRuedas, int maxAccesorios){
+    public Almacen(int maxChasis, int maxCarrocerias, int maxMotores, int maxRuedas, int maxAccesorios, Interfaz  i){
         this.chasis = 0;
         this.carrocerias = 0;
         this.motores = 0;
@@ -20,6 +21,8 @@ public class Almacen {
         this.maxMotores = maxMotores;
         this.maxRuedas = maxRuedas;
         this.maxAccesorios = maxAccesorios;
+        
+        this.i = i;
     }
     
     public void addParts(String type, int parts, String name){
@@ -29,7 +32,7 @@ public class Almacen {
                 
                 if (this.chasis < this.maxChasis){
                     this.chasis += parts;
-                    System.out.println("Chasis: " + this.chasis);
+                    //System.out.println("Chasis: " + this.chasis);
                 }
                 break;
             
@@ -37,6 +40,7 @@ public class Almacen {
                 
                 if (this.carrocerias < this.maxCarrocerias){
                     this.carrocerias += parts;
+                    
                     //System.out.println("Carrocerias: " + this.carrocerias);
                 }
                 break;
@@ -49,6 +53,7 @@ public class Almacen {
                     }else{
                         this.motores += parts;
                     }
+                    
                     //System.out.println("Motores: " + this.motores);
                 }
                 break;
@@ -61,7 +66,7 @@ public class Almacen {
                     }else{
                         this.ruedas += parts;
                     }
-                    System.out.println("Ruedas: " + this.ruedas);
+                    //System.out.println("Ruedas: " + this.ruedas);
                 }
                 break;
                 
@@ -69,7 +74,7 @@ public class Almacen {
                 
                 if (this.accesorios < this.maxAccesorios){
                     this.accesorios += parts;
-                    System.out.println("Accesorios: " + this.accesorios);
+                    //System.out.println("Accesorios: " + this.accesorios);
                 }
                 break;
                 
@@ -80,17 +85,17 @@ public class Almacen {
                             if(this.vehiculosE == (this.vehiculosA*2)){
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                //System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }else if((this.vehiculosE % 2 == 0)){
                                 if(this.accesorios>=3){
                                     this.vehiculosA += parts;
                                     deleteParts(name, true);
-                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                    //System.out.println("Vehículos con accesorios: " + this.vehiculosA);
                                 }
                             }else{
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+//                                System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }
                         }
                         break;
@@ -100,23 +105,25 @@ public class Almacen {
                             if(this.vehiculosE == (this.vehiculosA*3)){
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                //System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }else if((this.vehiculosE % 3 == 0)){
                                 if(this.accesorios>=1){
                                     this.vehiculosA += parts;
                                     deleteParts(name, true);
-                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                    //System.out.println("Vehículos con accesorios: " + this.vehiculosA);
                                 }
                             }else{
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                //System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }
                         }
                         break;
                 }
                 break;
         }
+        i.actualizar();
+        
     }
     
     public void deleteParts(String marca, boolean tipo){

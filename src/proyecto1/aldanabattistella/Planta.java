@@ -74,6 +74,41 @@ public class Planta {
                 break;
                 
             case "LA":
+                for(int i = 0; i<this.chasisI; i++){
+                    Worker worker = new Worker(240, "chasis", 0.25f, this.dayDuration, this);
+                    worker.start();
+                    workers[i] = worker;
+                }
+
+                for(int i = 0; i<this.carroceriaI; i++){
+                    Worker worker = new Worker(312, "carroceria", 0.25f, this.dayDuration, this);
+                    worker.start();
+                    workers[i+this.chasisI] = worker;
+                }
+
+                for(int i = 0; i<this.motorI; i++){
+                    Worker worker = new Worker(480, "motor", 1f, this.dayDuration, this);
+                    worker.start();
+                    workers[i+this.chasisI+this.carroceriaI] = worker;
+                }
+
+                for(int i = 0; i<this.ruedasI; i++){
+                    Worker worker = new Worker(192, "rueda", 5f, this.dayDuration, this);
+                    worker.start();
+                    workers[i+this.chasisI+this.carroceriaI+this.motorI] = worker;
+                }
+
+                for(int i = 0; i<this.accesoriosI; i++){
+                    Worker worker = new Worker(408, "accesorio", 0.5f, this.dayDuration, this);
+                    worker.start();
+                    workers[i+this.chasisI+this.carroceriaI+this.motorI+this.ruedasI] = worker;
+                }
+
+                for(int i = 0; i<this.ensambladoresI; i++){
+                    Worker worker = new Worker(600, "vehiculo", 0.5f, this.dayDuration, this);
+                    worker.start();
+                    workers[i+this.chasisI+this.carroceriaI+this.motorI+this.ruedasI+this.accesoriosI] = worker;
+                }
                 break;
         }
 

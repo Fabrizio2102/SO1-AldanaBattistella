@@ -13,8 +13,9 @@ public class Director extends Thread {
     private boolean enviando;
     private boolean trabajando;
     private Planta planta;
+    Interfaz i;
     
-    public Director(int salary, long duration, Planta planta){
+    public Director(int salary, long duration, Planta planta, Interfaz i){
         this.salary = salary;
         this.planta = planta;
         this.dayDuration = duration;
@@ -23,6 +24,7 @@ public class Director extends Thread {
         this.vigilando = false;
         this.trabajando = true;
         this.enviando = false;
+        this.i = i;
     }
     
     @Override
@@ -34,6 +36,7 @@ public class Director extends Thread {
                 this.vigilando = true;
                 this.trabajando = false;
                 this.enviando = false;
+                this.i.dirUpdate(vigilando, trabajando, enviando, this.planta);
                 
                 if(!(planta.gerente.vigilado(this.vigilando))){
                     sleep(this.esperar25);
@@ -45,6 +48,7 @@ public class Director extends Thread {
                 this.vigilando = false;
                 this.trabajando = true;
                 this.enviando = false;
+                this.i.dirUpdate(vigilando, trabajando, enviando, this.planta);
                 
                 sleep(this.dayDuration-this.horaRandom-this.esperar25);
                 
@@ -53,6 +57,7 @@ public class Director extends Thread {
                     this.vigilando = false;
                     this.trabajando = false;
                     this.enviando = true;
+                    this.i.dirUpdate(vigilando, trabajando, enviando, this.planta);
                     enviarVehiculos();
                 }                
             }

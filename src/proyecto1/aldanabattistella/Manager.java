@@ -12,8 +12,9 @@ public class Manager extends Thread {
     private long esperar30;
     private boolean carreras;
     private Planta planta;
+    Interfaz i;
 
-    public Manager(int salary, long dayDuration, Planta planta){
+    public Manager(int salary, long dayDuration, Planta planta, Interfaz i){
         this.salary = salary; 
         this.dayDuration = dayDuration;
         this.planta = planta;
@@ -21,7 +22,8 @@ public class Manager extends Thread {
         this.money = 0;
         this.descontado = 0;
         this.faltas = 0;
-        this.carreras = false;        
+        this.carreras = false; 
+        this.i = i;
     }
     
     @Override 
@@ -31,8 +33,11 @@ public class Manager extends Thread {
                 for(int i=0; i<16; i++){
                     sleep(this.esperar30);
                     this.carreras = true;
-                    sleep(this.esperar30);
+                    
+                    this.i.gerUpdate(this.carreras, this.planta);
+                    sleep(this.esperar30);             
                     this.carreras = false;
+                    this.i.gerUpdate(this.carreras, this.planta);
                 }
                 sleep(this.dayDuration - (this.esperar30 * 32));
                 this.money += this.salary;
@@ -53,7 +58,9 @@ public class Manager extends Thread {
             this.faltas++;
             this.descontado+=50;
             this.money -= 50;
+            this.i.caught(this.planta, this.faltas, this.descontado);
             return true;
+            
         }else{
             return false;
         }

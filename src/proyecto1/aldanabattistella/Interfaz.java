@@ -192,6 +192,7 @@ public class Interfaz extends javax.swing.JFrame {
         nSueldoFaltaTitle = new javax.swing.JLabel();
         Title = new javax.swing.JLabel();
         Subtitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -686,22 +687,22 @@ public class Interfaz extends javax.swing.JFrame {
         laborDirMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         laborDirMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         laborDirMA.setText("...");
-        gerDir.add(laborDirMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 20, -1));
+        gerDir.add(laborDirMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 120, -1));
 
         laborGerMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         laborGerMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         laborGerMA.setText("...");
-        gerDir.add(laborGerMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 20, -1));
+        gerDir.add(laborGerMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 120, -1));
 
         laborGerLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         laborGerLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         laborGerLA.setText("...");
-        gerDir.add(laborGerLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, 20, -1));
+        gerDir.add(laborGerLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 120, -1));
 
         laborDirLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         laborDirLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         laborDirLA.setText("...");
-        gerDir.add(laborDirLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 20, -1));
+        gerDir.add(laborDirLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 120, -1));
 
         gdLA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         gdLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -772,6 +773,14 @@ public class Interfaz extends javax.swing.JFrame {
         Subtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Subtitle.setText("Maserati y Lamboghini");
         getContentPane().add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 750, -1));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/backB.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
@@ -923,6 +932,10 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LAEnsambladoresStateChanged
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.laborGerLA.setText("JUUU");
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     public boolean getSumMA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
         return sum > 14;
@@ -934,7 +947,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     public void reducir(javax.swing.JSpinner chosenSpinner, javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
-        System.out.println("Reduciendo ");
+        //System.out.println("Reduciendo ");
         int maxN = 0;
         javax.swing.JSpinner maxSpinner = chosenSpinner;
         
@@ -972,7 +985,7 @@ public class Interfaz extends javax.swing.JFrame {
     }
     
     public void aumentar(javax.swing.JSpinner chosenSpinner, javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
-        System.out.println("Aumentando ");
+        //System.out.println("Aumentando ");
         int minN = 20;
         javax.swing.JSpinner minSpinner = chosenSpinner;
         
@@ -1025,6 +1038,57 @@ public class Interfaz extends javax.swing.JFrame {
         this.NlistosAccMA.setText(Integer.toString(MaPlant.almacen.vehiculosA));
         this.NlistosEstLA.setText(Integer.toString(LaPlant.almacen.vehiculosE));
         this.NlistosAccLA.setText(Integer.toString(LaPlant.almacen.vehiculosA));
+    }
+    
+    public void gerUpdate(boolean carreritas, Planta planta){
+        if (carreritas){
+            if ("MA".equals(planta.name)){
+                this.laborGerMA.setText("...carreritas...");
+            } else {
+                this.laborGerLA.setText("...carreritas...");
+            } 
+        }else {
+            if ("MA".equals(planta.name)){
+                this.laborGerMA.setText("trabajando");
+            } else {
+                this.laborGerLA.setText("trabajando");
+            }
+        }
+    }
+    
+    public void dirUpdate(boolean vigilando, boolean trabajando, boolean enviando, Planta planta){
+        if ("MA".equals(planta.name)){
+            if (vigilando){
+                this.laborDirMA.setText("vigilando");
+            }
+            if (trabajando){
+                this.laborDirMA.setText("trabajando");
+            }
+            if (enviando){
+                this.laborDirMA.setText("enviando");
+            }
+        } else {
+            if (vigilando){
+                this.laborDirLA.setText("vigilando");
+            }
+            if (trabajando){
+                this.laborDirLA.setText("trabajando");
+            }
+            if (enviando){
+                this.laborDirLA.setText("enviando");
+            }
+        }
+                
+    }
+    
+    public void caught(Planta planta, int Nfaltas, int montoDescontado){
+        if ("MA".equals(planta.name)){
+            this.nFaltasMA.setText(Integer.toString(Nfaltas));
+            this.sueldoFaltaMA.setText(Integer.toString(montoDescontado));
+        }else {
+            this.nFaltasLA.setText(Integer.toString(Nfaltas));
+            this.sueldoFaltaLA.setText(Integer.toString(montoDescontado));
+        }
     }
     
     /**
@@ -1147,6 +1211,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel gerDirTitle;
     private javax.swing.JLabel gerTitle;
     private javax.swing.JLabel ingresosTitle;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel laborDirLA;
     private javax.swing.JLabel laborDirMA;
     private javax.swing.JLabel laborGerLA;

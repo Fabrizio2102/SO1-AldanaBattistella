@@ -12,6 +12,7 @@ public class Planta {
     public Director director;
     public Manager gerente;
     public Semaphore mutex;
+    Interfaz i;
     
     
     public Planta(String name, int max, long duration, int dias, int ch, int ca, int mo, int ru, int ac, int en, Interfaz i){
@@ -31,7 +32,7 @@ public class Planta {
         this.accesoriosI = ac;
         this.ensambladoresI = en;
         
-       
+        this.i=i;
         
         createWorkers();
     }
@@ -115,9 +116,9 @@ public class Planta {
                 break;
         }
 
-        gerente = new Manager(480, this.dayDuration, this);
+        gerente = new Manager(480, this.dayDuration, this, this.i);
         gerente.start();
-        director = new Director(720, this.dayDuration, this);
+        director = new Director(720, this.dayDuration, this, this.i);
         director.start();
     }
 }

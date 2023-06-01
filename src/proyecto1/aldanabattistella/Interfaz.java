@@ -10,14 +10,15 @@ package proyecto1.aldanabattistella;
  * @author dario
  */
 public class Interfaz extends javax.swing.JFrame {
-
+    boolean clickToChange = true; 
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         this.setResizable(false);
-        this.setLocationRelativeTo(null);
+        
         initComponents();
+        
     }
 
     /**
@@ -69,11 +70,15 @@ public class Interfaz extends javax.swing.JFrame {
         accesorios = new javax.swing.JLabel();
         MAAccesorios = new javax.swing.JSpinner();
         LAAccesorios = new javax.swing.JSpinner();
+        empleadosPanelNum = new javax.swing.JPanel();
+        empTitleNum = new javax.swing.JLabel();
+        empNMA = new javax.swing.JLabel();
+        empNLA = new javax.swing.JLabel();
         ensambladoresPanel = new javax.swing.JPanel();
         ensambladores = new javax.swing.JLabel();
         MAEnsambladores = new javax.swing.JSpinner();
         LAEnsambladores = new javax.swing.JSpinner();
-        Motor = new javax.swing.JPanel();
+        motorPanel = new javax.swing.JPanel();
         motor = new javax.swing.JLabel();
         MAMotor = new javax.swing.JSpinner();
         LAMotor = new javax.swing.JSpinner();
@@ -140,10 +145,12 @@ public class Interfaz extends javax.swing.JFrame {
         nFaltasTitle = new javax.swing.JLabel();
         gerDirTitle = new javax.swing.JLabel();
         nSueldoFaltaTitle = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        daysLeftPanel.setOpaque(false);
         daysLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         daysLeft.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -166,6 +173,7 @@ public class Interfaz extends javax.swing.JFrame {
         Subtitle.setText("Maserati y Lamboghini");
         getContentPane().add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 700, -1));
 
+        disponibilidadPanel.setOpaque(false);
         disponibilidadPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tituloDispon.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -183,6 +191,7 @@ public class Interfaz extends javax.swing.JFrame {
         disponMA.setText("MA");
         disponibilidadPanel.add(disponMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 30, 20));
 
+        accesoriosPanelDispon.setOpaque(false);
         accesoriosPanelDispon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         accesoriosDispon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -199,6 +208,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         disponibilidadPanel.add(accesoriosPanelDispon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
+        carroceriaPanelDispon.setOpaque(false);
         carroceriaPanelDispon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carroceriaDispon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -215,6 +225,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         disponibilidadPanel.add(carroceriaPanelDispon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, -1, -1));
 
+        ruedasPanelDispon.setOpaque(false);
         ruedasPanelDispon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ruedasDispon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -231,6 +242,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         disponibilidadPanel.add(ruedasPanelDispon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
+        chasisPanelDispon.setOpaque(false);
         chasisPanelDispon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chasisDispon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -247,6 +259,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         disponibilidadPanel.add(chasisPanelDispon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        motorPanelDispon.setOpaque(false);
         motorPanelDispon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         motorDispon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -265,6 +278,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(disponibilidadPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 160, 220));
 
+        empleadosPanel.setOpaque(false);
         empleadosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         empLA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -277,21 +291,26 @@ public class Interfaz extends javax.swing.JFrame {
         empMA.setText("MA");
         empleadosPanel.add(empMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 30, 20));
 
+        ruedasPanel.setOpaque(false);
         ruedasPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ruedas.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ruedas.setText("Ruedas");
-        ruedasPanel.add(ruedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        ruedasPanel.add(ruedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MARuedas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MARuedas.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MARuedas.setToolTipText("");
         MARuedas.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MARuedasStateChanged(evt);
             }
         });
-        ruedasPanel.add(MARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        ruedasPanel.add(MARuedas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LARuedas.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LARuedas.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LARuedas.setModel(new javax.swing.SpinnerNumberModel(3, 1, 12, 1));
+        LARuedas.setToolTipText("");
         LARuedas.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LARuedasStateChanged(evt);
@@ -301,21 +320,26 @@ public class Interfaz extends javax.swing.JFrame {
 
         empleadosPanel.add(ruedasPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
+        accesoriosPanel.setOpaque(false);
         accesoriosPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         accesorios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         accesorios.setText("Accesorios");
-        accesoriosPanel.add(accesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        accesoriosPanel.add(accesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MAAccesorios.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MAAccesorios.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAAccesorios.setToolTipText("");
         MAAccesorios.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MAAccesoriosStateChanged(evt);
             }
         });
-        accesoriosPanel.add(MAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        accesoriosPanel.add(MAAccesorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LAAccesorios.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAAccesorios.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LAAccesorios.setModel(new javax.swing.SpinnerNumberModel(3, 1, 12, 1));
+        LAAccesorios.setToolTipText("");
         LAAccesorios.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LAAccesoriosStateChanged(evt);
@@ -325,21 +349,43 @@ public class Interfaz extends javax.swing.JFrame {
 
         empleadosPanel.add(accesoriosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, -1, -1));
 
+        empleadosPanelNum.setOpaque(false);
+        empleadosPanelNum.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        empTitleNum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        empTitleNum.setText("Empleados");
+        empleadosPanelNum.add(empTitleNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+
+        empNMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        empNMA.setText("0");
+        empleadosPanelNum.add(empNMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 30, 20));
+
+        empNLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        empNLA.setText("0");
+        empleadosPanelNum.add(empNLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 30, 20));
+
+        empleadosPanel.add(empleadosPanelNum, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+
+        ensambladoresPanel.setOpaque(false);
         ensambladoresPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ensambladores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ensambladores.setText("Ensambladores");
-        ensambladoresPanel.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        ensambladoresPanel.add(ensambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MAEnsambladores.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MAEnsambladores.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAEnsambladores.setToolTipText("");
         MAEnsambladores.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MAEnsambladoresStateChanged(evt);
             }
         });
-        ensambladoresPanel.add(MAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        ensambladoresPanel.add(MAEnsambladores, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LAEnsambladores.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAEnsambladores.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LAEnsambladores.setModel(new javax.swing.SpinnerNumberModel(2, 1, 12, 1));
+        LAEnsambladores.setToolTipText("");
         LAEnsambladores.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LAEnsambladoresStateChanged(evt);
@@ -349,45 +395,55 @@ public class Interfaz extends javax.swing.JFrame {
 
         empleadosPanel.add(ensambladoresPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, -1, -1));
 
-        Motor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        motorPanel.setOpaque(false);
+        motorPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         motor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         motor.setText("Motor");
-        Motor.add(motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        motorPanel.add(motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MAMotor.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MAMotor.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        MAMotor.setToolTipText("");
         MAMotor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MAMotorStateChanged(evt);
             }
         });
-        Motor.add(MAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        motorPanel.add(MAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LAMotor.setModel(new javax.swing.SpinnerNumberModel(2, 1, 9, 1));
+        LAMotor.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LAMotor.setModel(new javax.swing.SpinnerNumberModel(3, 1, 12, 1));
+        LAMotor.setToolTipText("");
         LAMotor.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LAMotorStateChanged(evt);
             }
         });
-        Motor.add(LAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        motorPanel.add(LAMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        empleadosPanel.add(Motor, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
+        empleadosPanel.add(motorPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
+        chasisPanel.setOpaque(false);
         chasisPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chasis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         chasis.setText("Chasis");
-        chasisPanel.add(chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        chasisPanel.add(chasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MAChasis.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MAChasis.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        MAChasis.setToolTipText("");
         MAChasis.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MAChasisStateChanged(evt);
             }
         });
-        chasisPanel.add(MAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        chasisPanel.add(MAChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LAChasis.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        LAChasis.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LAChasis.setModel(new javax.swing.SpinnerNumberModel(3, 1, 12, 1));
+        LAChasis.setToolTipText("");
         LAChasis.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LAChasisStateChanged(evt);
@@ -397,21 +453,26 @@ public class Interfaz extends javax.swing.JFrame {
 
         empleadosPanel.add(chasisPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
+        carroceriaPanel.setOpaque(false);
         carroceriaPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         carroceria.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         carroceria.setText("Carroceria");
-        carroceriaPanel.add(carroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 100, 20));
+        carroceriaPanel.add(carroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 90, 20));
 
+        MACarroceria.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         MACarroceria.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        MACarroceria.setToolTipText("");
         MACarroceria.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 MACarroceriaStateChanged(evt);
             }
         });
-        carroceriaPanel.add(MACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+        carroceriaPanel.add(MACarroceria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 40, -1));
 
-        LACarroceria.setModel(new javax.swing.SpinnerNumberModel(3, 1, 9, 1));
+        LACarroceria.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        LACarroceria.setModel(new javax.swing.SpinnerNumberModel(3, 1, 12, 1));
+        LACarroceria.setToolTipText("");
         LACarroceria.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 LACarroceriaStateChanged(evt);
@@ -426,8 +487,9 @@ public class Interfaz extends javax.swing.JFrame {
         tituloEmpleados.setText("Empleados");
         empleadosPanel.add(tituloEmpleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 160, 20));
 
-        getContentPane().add(empleadosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, 220));
+        getContentPane().add(empleadosPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 250));
 
+        listos.setOpaque(false);
         listos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listosTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -476,6 +538,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(listos, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 210, -1));
 
+        maxAlmacenaje.setOpaque(false);
         maxAlmacenaje.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         MaxAlmacenajeTitle.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -524,6 +587,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(maxAlmacenaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 50, 210, 160));
 
+        profitPanel.setOpaque(false);
         profitPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listosTitle1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -579,6 +643,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(profitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
+        gerDir.setOpaque(false);
         gerDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         laborDirMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -661,165 +726,238 @@ public class Interfaz extends javax.swing.JFrame {
 
         getContentPane().add(gerDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 380, 150));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/backB.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 440));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void MAChasisStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAChasisStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (this.clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MAChasis, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MAChasis, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MAChasisStateChanged
 
     private void MACarroceriaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MACarroceriaStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (this.clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MACarroceria, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MACarroceria, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MACarroceriaStateChanged
 
     private void MAMotorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAMotorStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MAMotor, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MAMotor, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MAMotorStateChanged
 
     private void MARuedasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MARuedasStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MARuedas, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MARuedas, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MARuedasStateChanged
 
     private void MAAccesoriosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAAccesoriosStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MAAccesorios, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MAAccesorios, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MAAccesoriosStateChanged
 
     private void MAEnsambladoresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_MAEnsambladoresStateChanged
-        if (getSum(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
-            reducir(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
-        } else {
-            aumentar(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+        if (clickToChange){
+            if (getSumMA(MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores)){
+                reducir(MAEnsambladores, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            } else {
+                aumentar(MAEnsambladores, MAChasis, MACarroceria, MAMotor, MARuedas, MAAccesorios, MAEnsambladores);
+            }
+            int s = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
+            empNMA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_MAEnsambladoresStateChanged
 
     private void LAChasisStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAChasisStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LAChasis, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LAChasis, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LAChasisStateChanged
 
     private void LACarroceriaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LACarroceriaStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LACarroceria, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LACarroceria, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LACarroceriaStateChanged
 
     private void LAMotorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAMotorStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LAMotor, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LAMotor, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LAMotorStateChanged
 
     private void LARuedasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LARuedasStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        }
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LARuedas, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LARuedas, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
+        }   
     }//GEN-LAST:event_LARuedasStateChanged
 
     private void LAAccesoriosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAAccesoriosStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LAAccesorios, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LAAccesorios, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LAAccesoriosStateChanged
 
     private void LAEnsambladoresStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_LAEnsambladoresStateChanged
-        if (getSum(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
-            reducir(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
-        } else {
-            aumentar(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+        if (clickToChange){
+            if (getSumLA(LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores)){
+                reducir(LAEnsambladores, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            } else {
+                aumentar(LAEnsambladores, LAChasis, LACarroceria, LAMotor, LARuedas, LAAccesorios, LAEnsambladores);
+            }
+            int s = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
+            empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LAEnsambladoresStateChanged
 
-    public boolean getSum(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+    public boolean getSumMA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
         return sum > 14;
     }
     
-    public void reducir(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+    public boolean getSumLA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+        int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
+        return sum > 17;
+    }
+    
+    public void reducir(javax.swing.JSpinner chosenSpinner, javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         System.out.println("Reduciendo ");
-        int maxN = (Integer)spinner1.getValue();
-        javax.swing.JSpinner maxSpinner = spinner1;
+        int maxN = 0;
+        javax.swing.JSpinner maxSpinner = chosenSpinner;
         
-        if (maxN < (Integer)spinner2.getValue()){
+        
+        if (maxN < (Integer)spinner1.getValue() && (!(chosenSpinner==spinner1))){
+            maxN = (Integer)spinner1.getValue();
+            maxSpinner = spinner1;
+        }        
+        if (maxN < (Integer)spinner2.getValue() && (!(chosenSpinner==spinner2))){
             maxN = (Integer)spinner2.getValue();
             maxSpinner = spinner2;
         }
-        if (maxN < (Integer)spinner3.getValue()){
+        if (maxN < (Integer)spinner3.getValue() && (!(chosenSpinner==spinner3))){
             maxN = (Integer)spinner3.getValue();
             maxSpinner = spinner3;
         }
-        if (maxN < (Integer)spinner4.getValue()){
+        if (maxN < (Integer)spinner4.getValue() && (!(chosenSpinner==spinner4))){
             maxN = (Integer)spinner4.getValue();
             maxSpinner = spinner4;
         }
-        if (maxN < (Integer)spinner5.getValue()){
+        if (maxN < (Integer)spinner5.getValue() && (!(chosenSpinner==spinner5))){
             maxN = (Integer)spinner5.getValue();
             maxSpinner = spinner5;
         }
-        if (maxN < (Integer)spinner6.getValue()){
+        if (maxN < (Integer)spinner6.getValue() && (!(chosenSpinner==spinner6))){
+            maxN = (Integer)spinner6.getValue();
             maxSpinner = spinner6;
         }
         
+        this.clickToChange = false;
         maxSpinner.setValue(maxN-1);
+        this.clickToChange = true;
+        
        
     }
     
-    public void aumentar(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
+    public void aumentar(javax.swing.JSpinner chosenSpinner, javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         System.out.println("Aumentando ");
-        int minN = (Integer)spinner1.getValue();
-        javax.swing.JSpinner minSpinner = spinner1;
+        int minN = 20;
+        javax.swing.JSpinner minSpinner = chosenSpinner;
         
-        if (minN > (Integer)spinner2.getValue()){
+        if (minN > (Integer)spinner1.getValue() && (!(chosenSpinner==spinner1))){
+            minN = (Integer)spinner1.getValue();
+            minSpinner = spinner1;
+        }
+        if (minN > (Integer)spinner2.getValue() && (!(chosenSpinner==spinner2))){
             minN = (Integer)spinner2.getValue();
             minSpinner = spinner2;
         }
-        if (minN > (Integer)spinner3.getValue()){
+        if (minN > (Integer)spinner3.getValue() && (!(chosenSpinner==spinner3))){
             minN = (Integer)spinner3.getValue();
             minSpinner = spinner3;
         }
-        if (minN > (Integer)spinner4.getValue()){
+        if (minN > (Integer)spinner4.getValue() && (!(chosenSpinner==spinner4))){
             minN = (Integer)spinner4.getValue();
             minSpinner = spinner4;
         }
-        if (minN > (Integer)spinner5.getValue()){
+        if (minN > (Integer)spinner5.getValue() && (!(chosenSpinner==spinner5))){
             minN = (Integer)spinner5.getValue();
             minSpinner = spinner5;
         }
-        if (minN > (Integer)spinner6.getValue()){
+        if (minN > (Integer)spinner6.getValue() && (!(chosenSpinner==spinner6))){
             minSpinner = spinner6;
         }
         
+        this.clickToChange = false;
         minSpinner.setValue(minN+1);
+        this.clickToChange = true;
+        
+        
     }
     
     /**
@@ -885,7 +1023,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JSpinner MARuedas;
     private javax.swing.JLabel MARuedasDispon;
     private javax.swing.JLabel MaxAlmacenajeTitle;
-    private javax.swing.JPanel Motor;
     private javax.swing.JLabel NlistosAccLA;
     private javax.swing.JLabel NlistosAccLA1;
     private javax.swing.JLabel NlistosAccLA2;
@@ -928,7 +1065,11 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel econMAutilidad;
     private javax.swing.JLabel empLA;
     private javax.swing.JLabel empMA;
+    private javax.swing.JLabel empNLA;
+    private javax.swing.JLabel empNMA;
+    private javax.swing.JLabel empTitleNum;
     private javax.swing.JPanel empleadosPanel;
+    private javax.swing.JPanel empleadosPanelNum;
     private javax.swing.JLabel ensambladores;
     private javax.swing.JPanel ensambladoresPanel;
     private javax.swing.JLabel faltasTitle;
@@ -938,6 +1079,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel gerDirTitle;
     private javax.swing.JLabel gerTitle;
     private javax.swing.JLabel ingresosTitle;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel laborDirLA;
     private javax.swing.JLabel laborDirMA;
     private javax.swing.JLabel laborGerLA;
@@ -952,6 +1094,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel motorDispon;
     private javax.swing.JLabel motorMax;
     private javax.swing.JLabel motorMaxN;
+    private javax.swing.JPanel motorPanel;
     private javax.swing.JPanel motorPanelDispon;
     private javax.swing.JLabel nFaltasLA;
     private javax.swing.JLabel nFaltasMA;

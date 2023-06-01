@@ -51,6 +51,8 @@ public class Manager extends Thread {
     
     public void proceso(){
         planta.diasRestantes--;
+        this.i.updateCosts();
+        this.i.updateDeadline(planta.diasRestantes);
     }
     
     public boolean vigilado(boolean director){

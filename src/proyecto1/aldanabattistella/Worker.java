@@ -4,13 +4,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Worker extends Thread {
-    private String tipo;
+    public String tipo;
     private float produxday;
     private float count;
-    private int salary;
+    public int salary;
     private long money;
     private long dayDuration;
-    private Planta planta;
+    public Planta planta;
     
     
     public Worker(int salary, String type, float production, long duration, Planta plant){

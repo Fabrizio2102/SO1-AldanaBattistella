@@ -11,8 +11,8 @@ package proyecto1.aldanabattistella;
  */
 public class Interfaz extends javax.swing.JFrame {
     boolean clickToChange = true; 
-    public static Planta MaPlant;
-    public static Planta LaPlant;
+    public Planta MaPlant;
+    public Planta LaPlant;
     int empMAchasis; 
     int empMAcarroceria; 
     int empMAmotor;
@@ -25,6 +25,8 @@ public class Interfaz extends javax.swing.JFrame {
     int empLAruedas;
     int empLAaccesorios;
     int empLAensambladores;
+    long costsMA;
+    long costsLA;
     /**
      * Creates new form Interfaz
      */
@@ -51,8 +53,8 @@ public class Interfaz extends javax.swing.JFrame {
         this.empLAaccesorios = (Integer)LAAccesorios.getValue();
         this.empLAensambladores = (Integer)LAEnsambladores.getValue();
         
-        MaPlant = new Planta("MA", 14, 1000, 30, this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores, this);
-        LaPlant = new Planta("LA", 17, 1000, 30, this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores, this);
+        MaPlant = new Planta("MA", sMA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores, this);
+        LaPlant = new Planta("LA", sLA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores, this);
         
 
         this.chasisMaxN.setText(Integer.toString(MaPlant.almacen.maxChasis));
@@ -61,10 +63,8 @@ public class Interfaz extends javax.swing.JFrame {
         this.ruedasMaxN.setText(Integer.toString(MaPlant.almacen.maxRuedas));
         this.accesoriosMaxN.setText(Integer.toString(MaPlant.almacen.maxAccesorios));
         
-        
-
-        
-        
+        this.costsMA = 0;
+        this.costsLA = 0; 
         
     }
 
@@ -164,15 +164,15 @@ public class Interfaz extends javax.swing.JFrame {
         listosTitle1 = new javax.swing.JLabel();
         econLA = new javax.swing.JLabel();
         econMA = new javax.swing.JLabel();
-        costosTitle = new javax.swing.JLabel();
-        econMAcostos = new javax.swing.JLabel();
-        ingresosTitle = new javax.swing.JLabel();
         econMAingreso = new javax.swing.JLabel();
-        NlistosEstLA1 = new javax.swing.JLabel();
-        NlistosAccLA1 = new javax.swing.JLabel();
+        econMAcostos = new javax.swing.JLabel();
         econMAutilidad = new javax.swing.JLabel();
+        econLAingreso = new javax.swing.JLabel();
+        econLAcostos = new javax.swing.JLabel();
+        econLAutilidad = new javax.swing.JLabel();
+        costosTitle = new javax.swing.JLabel();
+        ingresosTitle = new javax.swing.JLabel();
         utilidadTitle = new javax.swing.JLabel();
-        NlistosAccLA2 = new javax.swing.JLabel();
         gerDir = new javax.swing.JPanel();
         laborDirMA = new javax.swing.JLabel();
         laborGerMA = new javax.swing.JLabel();
@@ -192,7 +192,6 @@ public class Interfaz extends javax.swing.JFrame {
         nSueldoFaltaTitle = new javax.swing.JLabel();
         Title = new javax.swing.JLabel();
         Subtitle = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -206,7 +205,7 @@ public class Interfaz extends javax.swing.JFrame {
         daysLeftPanel.add(daysLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         daysLeftN.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        daysLeftN.setText("0");
+        daysLeftN.setText("30");
         daysLeftPanel.add(daysLeftN, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 30, -1));
 
         getContentPane().add(daysLeftPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 140, 40));
@@ -631,55 +630,55 @@ public class Interfaz extends javax.swing.JFrame {
         listosTitle1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         listosTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         listosTitle1.setText("Informe Económico");
-        profitPanel.add(listosTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 210, 20));
+        profitPanel.add(listosTitle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 20));
 
         econLA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         econLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         econLA.setText("LA");
-        profitPanel.add(econLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 25, 30, 20));
+        profitPanel.add(econLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, 30, 20));
 
         econMA.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         econMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         econMA.setText("MA");
-        profitPanel.add(econMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 25, 30, 20));
-
-        costosTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        costosTitle.setText("Costos");
-        profitPanel.add(costosTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 210, -1));
-
-        econMAcostos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        econMAcostos.setText("0");
-        profitPanel.add(econMAcostos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 30, -1));
-
-        ingresosTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ingresosTitle.setText("Ingresos");
-        profitPanel.add(ingresosTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 50, 210, -1));
+        profitPanel.add(econMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 30, 20));
 
         econMAingreso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         econMAingreso.setText("0");
-        profitPanel.add(econMAingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 30, -1));
+        profitPanel.add(econMAingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 110, -1));
 
-        NlistosEstLA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NlistosEstLA1.setText("0");
-        profitPanel.add(NlistosEstLA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 30, -1));
-
-        NlistosAccLA1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NlistosAccLA1.setText("0");
-        profitPanel.add(NlistosAccLA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 30, -1));
+        econMAcostos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        econMAcostos.setText("0");
+        profitPanel.add(econMAcostos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 110, -1));
 
         econMAutilidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         econMAutilidad.setText("0");
-        profitPanel.add(econMAutilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 30, -1));
+        profitPanel.add(econMAutilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 110, -1));
+
+        econLAingreso.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        econLAingreso.setText("0");
+        profitPanel.add(econLAingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 100, -1));
+
+        econLAcostos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        econLAcostos.setText("0");
+        profitPanel.add(econLAcostos, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 100, -1));
+
+        econLAutilidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        econLAutilidad.setText("0");
+        profitPanel.add(econLAutilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 100, -1));
+
+        costosTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        costosTitle.setText("Costos");
+        profitPanel.add(costosTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 270, -1));
+
+        ingresosTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ingresosTitle.setText("Ingresos");
+        profitPanel.add(ingresosTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 50, 270, -1));
 
         utilidadTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         utilidadTitle.setText("Utilidad");
-        profitPanel.add(utilidadTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 210, -1));
+        profitPanel.add(utilidadTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 270, -1));
 
-        NlistosAccLA2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        NlistosAccLA2.setText("0");
-        profitPanel.add(NlistosAccLA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 30, -1));
-
-        getContentPane().add(profitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
+        getContentPane().add(profitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 270, -1));
 
         gerDir.setOpaque(false);
         gerDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -730,9 +729,9 @@ public class Interfaz extends javax.swing.JFrame {
         gerDir.add(faltasTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 270, -1));
 
         sueldoFaltaLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        sueldoFaltaLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sueldoFaltaLA.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         sueldoFaltaLA.setText("...");
-        gerDir.add(sueldoFaltaLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 20, -1));
+        gerDir.add(sueldoFaltaLA, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 70, -1));
 
         nFaltasLA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         nFaltasLA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -745,9 +744,9 @@ public class Interfaz extends javax.swing.JFrame {
         gerDir.add(nFaltasMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 20, -1));
 
         sueldoFaltaMA.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
-        sueldoFaltaMA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        sueldoFaltaMA.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         sueldoFaltaMA.setText("...");
-        gerDir.add(sueldoFaltaMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 20, -1));
+        gerDir.add(sueldoFaltaMA, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 70, -1));
 
         nFaltasTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nFaltasTitle.setText("Cantidad");
@@ -773,14 +772,6 @@ public class Interfaz extends javax.swing.JFrame {
         Subtitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Subtitle.setText("Maserati y Lamboghini");
         getContentPane().add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 750, -1));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, -1, -1));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Photos/backB.png"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 450));
@@ -931,10 +922,6 @@ public class Interfaz extends javax.swing.JFrame {
             empNLA.setText(Integer.toString(s));
         }
     }//GEN-LAST:event_LAEnsambladoresStateChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.laborGerLA.setText("JUUU");
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     public boolean getSumMA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
@@ -1091,6 +1078,49 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }
     
+    public void updateDeadline(int n){
+        this.daysLeftN.setText(Integer.toString(n));
+    }
+    
+    public void updateGanancia(long n, String marca){
+        if ("MA".equals(marca)){
+           this.econMAingreso.setText(Long.toString(n));
+        } else {
+            this.econLAingreso.setText(Long.toString(n));
+        }
+    }
+    
+    public void updateCosts(){
+        
+        //costsMA += (Integer)this.MAChasis.getValue() + (Integer)this.MACarroceria.getValue() + (Integer)this.MAMotor.getValue() + (Integer)this.MARuedas.getValue() + (Integer)this.MAAccesorios.getValue() + (Integer)this.MAEnsambladores.getValue();
+        //costsLA += (Integer)this.LAChasis.getValue() + (Integer)this.LACarroceria.getValue() + (Integer)this.LAMotor.getValue() + (Integer)this.LARuedas.getValue() + (Integer)this.LAAccesorios.getValue() + (Integer)this.LAEnsambladores.getValue();
+        
+        for (int i = 0; i < this.MaPlant.workers.length; i++) {
+            costsMA += this.MaPlant.workers[i].salary;
+            
+        }
+        for (int i = 0; i < this.LaPlant.workers.length; i++) {
+            costsLA += this.LaPlant.workers[i].salary;
+        }
+        
+        costsMA += 480; //salario gerente
+        costsLA += 480;
+        
+        costsMA += 720; //salario director    
+        costsLA += 720;
+        
+        this.econLAcostos.setText(Long.toString(costsLA));
+        this.econMAcostos.setText(Long.toString(costsMA));
+    }
+    
+    public void updateUtility(){
+        long utiLA = Integer.valueOf(this.econLAingreso.getText())- Integer.valueOf(this.econLAcostos.getText()); 
+        long utiMA = Integer.valueOf(this.econMAingreso.getText())- Integer.valueOf(this.econMAcostos.getText()); 
+        
+        this.econMAutilidad.setText(Long.toString(utiMA));
+        this.econLAutilidad.setText(Long.toString(utiLA));
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -1155,11 +1185,8 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel MARuedasDispon;
     private javax.swing.JLabel MaxAlmacenajeTitle;
     private javax.swing.JLabel NlistosAccLA;
-    private javax.swing.JLabel NlistosAccLA1;
-    private javax.swing.JLabel NlistosAccLA2;
     private javax.swing.JLabel NlistosAccMA;
     private javax.swing.JLabel NlistosEstLA;
-    private javax.swing.JLabel NlistosEstLA1;
     private javax.swing.JLabel NlistosEstMA;
     private javax.swing.JLabel Subtitle;
     private javax.swing.JLabel Title;
@@ -1190,6 +1217,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel disponMA;
     private javax.swing.JPanel disponibilidadPanel;
     private javax.swing.JLabel econLA;
+    private javax.swing.JLabel econLAcostos;
+    private javax.swing.JLabel econLAingreso;
+    private javax.swing.JLabel econLAutilidad;
     private javax.swing.JLabel econMA;
     private javax.swing.JLabel econMAcostos;
     private javax.swing.JLabel econMAingreso;
@@ -1211,7 +1241,6 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel gerDirTitle;
     private javax.swing.JLabel gerTitle;
     private javax.swing.JLabel ingresosTitle;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel laborDirLA;
     private javax.swing.JLabel laborDirMA;
     private javax.swing.JLabel laborGerLA;

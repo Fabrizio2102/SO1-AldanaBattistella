@@ -7,7 +7,7 @@ public class Planta {
     public int diasEntrega, diasRestantes;
     private int maxWorkers, chasisI, carroceriaI, motorI, ruedasI, accesoriosI, ensambladoresI;
     private long dayDuration;
-    private Worker[] workers;
+    public Worker[] workers;
     public Almacen almacen;
     public Director director;
     public Manager gerente;

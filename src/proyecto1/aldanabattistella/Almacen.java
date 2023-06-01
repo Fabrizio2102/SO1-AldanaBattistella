@@ -156,13 +156,15 @@ public class Almacen {
         
         switch(marca){
             case "MA":
-                this.gananciaBruta += (this.vehiculosA*700) + (this.vehiculosE*350);
+                this.gananciaBruta += (this.vehiculosA*700000) + (this.vehiculosE*350000);
                 break;
                 
             case "LA":
-                this.gananciaBruta += (this.vehiculosA*750) + (this.vehiculosE*400);
+                this.gananciaBruta += (this.vehiculosA*750000) + (this.vehiculosE*400000);
                 break;
         }
+        this.i.updateGanancia(this.gananciaBruta, marca);
+        this.i.updateUtility();
         this.vehiculosA = 0;
         this.vehiculosE = 0;
     }

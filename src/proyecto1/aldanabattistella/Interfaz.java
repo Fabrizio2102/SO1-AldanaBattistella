@@ -11,13 +11,66 @@ package proyecto1.aldanabattistella;
  */
 public class Interfaz extends javax.swing.JFrame {
     boolean clickToChange = true; 
+    public static Planta MaPlant;
+    public static Planta LaPlant;
+    int empMAchasis; 
+    int empMAcarroceria; 
+    int empMAmotor;
+    int empMAruedas;
+    int empMAaccesorios;
+    int empMAensambladores; 
+    int empLAchasis; 
+    int empLAcarroceria; 
+    int empLAmotor;
+    int empLAruedas;
+    int empLAaccesorios;
+    int empLAensambladores;
     /**
      * Creates new form Interfaz
      */
     public Interfaz() {
         this.setResizable(false);
-        
         initComponents();
+        
+        this.empMAchasis = (Integer)MAChasis.getValue();
+        this.empMAcarroceria = (Integer)MACarroceria.getValue();
+        this.empMAmotor = (Integer)MAMotor.getValue();
+        this.empMAruedas = (Integer)MARuedas.getValue();
+        this.empMAaccesorios = (Integer)MAAccesorios.getValue();
+        this.empMAensambladores = (Integer)MAEnsambladores.getValue();
+        
+        this.empLAchasis = (Integer)LAChasis.getValue();
+        this.empLAcarroceria = (Integer)LACarroceria.getValue();
+        this.empLAmotor = (Integer)LAMotor.getValue();
+        this.empLAruedas = (Integer)LARuedas.getValue();
+        this.empLAaccesorios = (Integer)LAAccesorios.getValue();
+        this.empLAensambladores = (Integer)LAEnsambladores.getValue();
+        
+        MaPlant = new Planta("MA", 14, 1000, 30, this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores);
+        LaPlant = new Planta("LA", 17, 1000, 30, this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores);
+        
+
+        this.chasisMaxN.setText(Integer.toString(MaPlant.almacen.maxChasis));
+        this.carroceriaMaxN.setText(Integer.toString(MaPlant.almacen.maxCarrocerias));
+        this.motorMaxN.setText(Integer.toString(MaPlant.almacen.maxMotores));
+        this.ruedasMaxN.setText(Integer.toString(MaPlant.almacen.maxRuedas));
+        this.accesoriosMaxN.setText(Integer.toString(MaPlant.almacen.maxAccesorios));
+        
+        this.MAChasisDispon.setText(Integer.toString(MaPlant.almacen.chasis));
+        this.MACarroceriaDispon.setText(Integer.toString(MaPlant.almacen.carrocerias));
+        this.MAMotorDispon.setText(Integer.toString(MaPlant.almacen.motores));
+        this.MARuedasDispon.setText(Integer.toString(MaPlant.almacen.ruedas));
+        this.MAAccesoriosDispon.setText(Integer.toString(MaPlant.almacen.accesorios));
+        
+//        while (true) {
+//            this.LAChasisDispon.setText(Integer.toString(LaPlant.almacen.chasis));
+//            this.LACarroceriaDispon.setText(Integer.toString(LaPlant.almacen.carrocerias));
+//            this.LAMotorDispon.setText(Integer.toString(LaPlant.almacen.motores));
+//            this.LARuedasDispon.setText(Integer.toString(LaPlant.almacen.ruedas));
+//            this.LAAccesoriosDispon.setText(Integer.toString(LaPlant.almacen.accesorios));
+//        }
+        
+        
         
     }
 
@@ -30,6 +83,7 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        startBtn = new javax.swing.JToggleButton();
         daysLeftPanel = new javax.swing.JPanel();
         daysLeft = new javax.swing.JLabel();
         daysLeftN = new javax.swing.JLabel();
@@ -149,6 +203,15 @@ public class Interfaz extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        startBtn.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        startBtn.setText("GO");
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(startBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 400, -1, -1));
 
         daysLeftPanel.setOpaque(false);
         daysLeftPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -876,6 +939,11 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LAEnsambladoresStateChanged
 
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
+        MaPlant = new Planta("MA", 14, 1000, 30, this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores);
+        LaPlant = new Planta("LA", 17, 1000, 30, this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores);
+    }//GEN-LAST:event_startBtnActionPerformed
+
     public boolean getSumMA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
         return sum > 14;
@@ -1107,6 +1175,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ruedasMaxN;
     private javax.swing.JPanel ruedasPanel;
     private javax.swing.JPanel ruedasPanelDispon;
+    private javax.swing.JToggleButton startBtn;
     private javax.swing.JLabel sueldoFaltaLA;
     private javax.swing.JLabel sueldoFaltaMA;
     private javax.swing.JLabel tituloDispon;

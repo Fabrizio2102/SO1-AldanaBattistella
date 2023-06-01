@@ -25,6 +25,22 @@
     <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
+    <Component class="javax.swing.JToggleButton" name="startBtn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="GO"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="startBtnActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="630" y="400" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
     <Container class="javax.swing.JPanel" name="daysLeftPanel">
       <Properties>
         <Property name="opaque" type="boolean" value="false"/>
@@ -472,9 +488,6 @@
                   <SpinnerModel initial="2" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MARuedasStateChanged"/>
@@ -494,9 +507,6 @@
                   <SpinnerModel initial="3" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LARuedasStateChanged"/>
@@ -543,9 +553,6 @@
                   <SpinnerModel initial="2" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MAAccesoriosStateChanged"/>
@@ -565,9 +572,6 @@
                   <SpinnerModel initial="3" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LAAccesoriosStateChanged"/>
@@ -663,9 +667,6 @@
                   <SpinnerModel initial="2" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MAEnsambladoresStateChanged"/>
@@ -685,9 +686,6 @@
                   <SpinnerModel initial="2" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LAEnsambladoresStateChanged"/>
@@ -734,9 +732,6 @@
                   <SpinnerModel initial="2" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MAMotorStateChanged"/>
@@ -756,9 +751,6 @@
                   <SpinnerModel initial="3" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LAMotorStateChanged"/>
@@ -805,9 +797,6 @@
                   <SpinnerModel initial="3" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MAChasisStateChanged"/>
@@ -827,9 +816,6 @@
                   <SpinnerModel initial="3" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LAChasisStateChanged"/>
@@ -876,9 +862,6 @@
                   <SpinnerModel initial="3" maximum="9" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="MACarroceriaStateChanged"/>
@@ -898,9 +881,6 @@
                   <SpinnerModel initial="3" maximum="12" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
                 </Property>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
-                <Property name="UI" type="javax.swing.plaf.SpinnerUI" editor="org.netbeans.modules.form.ComponentChooserEditor">
-                  <ComponentRef name="default"/>
-                </Property>
               </Properties>
               <Events>
                 <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="LACarroceriaStateChanged"/>

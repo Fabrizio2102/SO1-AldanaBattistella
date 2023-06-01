@@ -29,7 +29,7 @@ public class Almacen {
                 
                 if (this.chasis < this.maxChasis){
                     this.chasis += parts;
-//                    System.out.println("Chasis: " + this.chasis);
+                    System.out.println("Chasis: " + this.chasis);
                 }
                 break;
             
@@ -37,7 +37,7 @@ public class Almacen {
                 
                 if (this.carrocerias < this.maxCarrocerias){
                     this.carrocerias += parts;
-//                    System.out.println("Carrocerias: " + this.carrocerias);
+                    //System.out.println("Carrocerias: " + this.carrocerias);
                 }
                 break;
                 
@@ -49,7 +49,7 @@ public class Almacen {
                     }else{
                         this.motores += parts;
                     }
-//                    System.out.println("Motores: " + this.motores);
+                    //System.out.println("Motores: " + this.motores);
                 }
                 break;
                 
@@ -61,7 +61,7 @@ public class Almacen {
                     }else{
                         this.ruedas += parts;
                     }
-//                    System.out.println("Ruedas: " + this.ruedas);
+                    System.out.println("Ruedas: " + this.ruedas);
                 }
                 break;
                 
@@ -69,7 +69,7 @@ public class Almacen {
                 
                 if (this.accesorios < this.maxAccesorios){
                     this.accesorios += parts;
-//                    System.out.println("Accesorios: " + this.accesorios);
+                    System.out.println("Accesorios: " + this.accesorios);
                 }
                 break;
                 
@@ -80,17 +80,17 @@ public class Almacen {
                             if(this.vehiculosE == (this.vehiculosA*2)){
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-//                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }else if((this.vehiculosE % 2 == 0)){
                                 if(this.accesorios>=3){
                                     this.vehiculosA += parts;
                                     deleteParts(name, true);
-//                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
                                 }
                             }else{
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-//                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }
                         }
                         break;
@@ -100,17 +100,17 @@ public class Almacen {
                             if(this.vehiculosE == (this.vehiculosA*3)){
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-//                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }else if((this.vehiculosE % 3 == 0)){
                                 if(this.accesorios>=1){
                                     this.vehiculosA += parts;
                                     deleteParts(name, true);
-//                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
+                                    System.out.println("Vehículos con accesorios: " + this.vehiculosA);
                                 }
                             }else{
                                 this.vehiculosE += parts;
                                 deleteParts(name, false);
-//                                System.out.println("Vehículos estándar: " + this.vehiculosE);
+                                System.out.println("Vehículos estándar: " + this.vehiculosE);
                             }
                         }
                         break;

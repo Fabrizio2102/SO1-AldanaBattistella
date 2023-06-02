@@ -5,6 +5,14 @@
  */
 package proyecto1.aldanabattistella;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author dario
@@ -42,10 +50,7 @@ public class Interfaz extends javax.swing.JFrame {
         this.accesoriosPanel.setName("accesorio");
         this.ensambladoresPanel.setName("vehiculo");
         
-        int sMA = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
-        empNMA.setText(Integer.toString(sMA));
-        int sLA = (Integer)LAChasis.getValue() + (Integer)LACarroceria.getValue() + (Integer)LAMotor.getValue() + (Integer)LARuedas.getValue() + (Integer)LAAccesorios.getValue() + (Integer)LAEnsambladores.getValue();
-        empNLA.setText(Integer.toString(sLA));
+        
         
         this.empMAchasis = (Integer)MAChasis.getValue();
         this.empMAcarroceria = (Integer)MACarroceria.getValue();
@@ -60,16 +65,8 @@ public class Interfaz extends javax.swing.JFrame {
         this.empLAruedas = (Integer)LARuedas.getValue();
         this.empLAaccesorios = (Integer)LAAccesorios.getValue();
         this.empLAensambladores = (Integer)LAEnsambladores.getValue();
-        
-        MaPlant = new Planta("MA", sMA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores, this);
-        LaPlant = new Planta("LA", sLA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores, this);
-        
 
-        this.chasisMaxN.setText(Integer.toString(MaPlant.almacen.maxChasis));
-        this.carroceriaMaxN.setText(Integer.toString(MaPlant.almacen.maxCarrocerias));
-        this.motorMaxN.setText(Integer.toString(MaPlant.almacen.maxMotores));
-        this.ruedasMaxN.setText(Integer.toString(MaPlant.almacen.maxRuedas));
-        this.accesoriosMaxN.setText(Integer.toString(MaPlant.almacen.maxAccesorios));
+       
         
         this.costsMA = 0;
         this.costsLA = 0; 
@@ -198,6 +195,8 @@ public class Interfaz extends javax.swing.JFrame {
         nFaltasTitle = new javax.swing.JLabel();
         gerDirTitle = new javax.swing.JLabel();
         nSueldoFaltaTitle = new javax.swing.JLabel();
+        loadDB = new javax.swing.JButton();
+        startBtn = new javax.swing.JButton();
         Title = new javax.swing.JLabel();
         Subtitle = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
@@ -686,7 +685,7 @@ public class Interfaz extends javax.swing.JFrame {
         utilidadTitle.setText("Utilidad");
         profitPanel.add(utilidadTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 270, -1));
 
-        getContentPane().add(profitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 270, -1));
+        getContentPane().add(profitPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 320, 270, -1));
 
         gerDir.setOpaque(false);
         gerDir.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -770,6 +769,22 @@ public class Interfaz extends javax.swing.JFrame {
         gerDir.add(nSueldoFaltaTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 270, -1));
 
         getContentPane().add(gerDir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 380, 150));
+
+        loadDB.setText("Load DB");
+        loadDB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadDBActionPerformed(evt);
+            }
+        });
+        getContentPane().add(loadDB, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 350, -1, -1));
+
+        startBtn.setText("START");
+        startBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startBtnActionPerformed(evt);
+            }
+        });
+        getContentPane().add(startBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, -1, -1));
 
         Title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         Title.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -931,6 +946,106 @@ public class Interfaz extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LAEnsambladoresStateChanged
 
+    private void loadDBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadDBActionPerformed
+        int segSimulacion;
+        int deadline; 
+        StringBuilder db = new StringBuilder();
+        File file = new File(getPath());
+        try {
+            
+            Scanner sc = new Scanner(file);
+            System.out.println("flag");
+            while(sc.hasNext()){
+                String line = sc.nextLine();
+                db.append(line);
+                db.append("\n");
+            }
+            
+            
+            String dbString = (db.toString());
+            String[] dbArray = dbString.split("\n");
+            
+            String dayDurationLine = dbArray[0];
+            String[] dayDurationArray = dayDurationLine.split(" = ");
+            String dayDuration = dayDurationArray[1];
+            this.daysLeftN.setText(dayDuration);
+            
+            
+            String deadlineLine = dbArray[1];
+            String[] deadlineArray = deadlineLine.split(" = ");
+            String deadlineDuration = deadlineArray[1];
+            
+            
+            String maWorkersLine = dbArray[2];
+            String[] maWorkersLineArray = maWorkersLine.split(" = ");
+            String[] maWorkersArray = maWorkersLineArray[1].split(",");
+            
+            this.MAChasis.setValue(maWorkersArray[0]);
+            this.MACarroceria.setValue(maWorkersArray[1]);
+            this.MAMotor.setValue(maWorkersArray[2]);
+            this.MARuedas.setValue(maWorkersArray[3]);
+            this.MAAccesorios.setValue(maWorkersArray[4]);
+            this.MAEnsambladores.setValue(maWorkersArray[5]);
+            
+            
+            String LAWorkersLine = dbArray[3];
+            String[] LAWorkersLineArray = LAWorkersLine.split(" = ");
+            String[] LAWorkersArray = LAWorkersLineArray[1].split(",");
+            
+            this.LAChasis.setValue(LAWorkersArray[0]);
+            this.LACarroceria.setValue(LAWorkersArray[1]);
+            this.LAMotor.setValue(LAWorkersArray[2]);
+            this.LARuedas.setValue(LAWorkersArray[3]);
+            this.LAAccesorios.setValue(LAWorkersArray[4]);
+            this.LAEnsambladores.setValue(LAWorkersArray[5]);
+
+
+        } catch(FileNotFoundException ex){
+            JOptionPane.showMessageDialog(null, 
+                    "El archivo no existe o no se encuentra en la ruta especificada",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE); 
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, 
+                    "Error al leer el archivo",
+                    "Error",
+                    JOptionPane.ERROR_MESSAGE); 
+        }
+        
+        
+        
+        
+    }//GEN-LAST:event_loadDBActionPerformed
+
+    private void startBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startBtnActionPerformed
+        
+        int sMA = (Integer)this.MAChasis.getValue() + (Integer)this.MACarroceria.getValue() + (Integer)this.MAMotor.getValue() + (Integer)this.MARuedas.getValue() + (Integer)this.MAAccesorios.getValue() + (Integer)this.MAEnsambladores.getValue();
+        empNMA.setText(Integer.toString(sMA));
+        int sLA = (Integer)this.LAChasis.getValue() + (Integer)this.LACarroceria.getValue() + (Integer)this.LAMotor.getValue() + (Integer)this.LARuedas.getValue() + (Integer)this.LAAccesorios.getValue() + (Integer)this.LAEnsambladores.getValue();
+        empNLA.setText(Integer.toString(sLA));
+
+        
+        MaPlant = new Planta("MA", sMA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empMAchasis, this.empMAcarroceria, this.empMAmotor, this.empMAruedas, this.empMAaccesorios, this.empMAensambladores, this);
+        LaPlant = new Planta("LA", sLA, 1000, Integer.valueOf(this.daysLeftN.getText()), this.empLAchasis, this.empLAcarroceria, this.empLAmotor, this.empLAruedas, this.empLAaccesorios, this.empLAensambladores, this);
+        
+        this.chasisMaxN.setText(Integer.toString(MaPlant.almacen.maxChasis));
+        this.carroceriaMaxN.setText(Integer.toString(MaPlant.almacen.maxCarrocerias));
+        this.motorMaxN.setText(Integer.toString(MaPlant.almacen.maxMotores));
+        this.ruedasMaxN.setText(Integer.toString(MaPlant.almacen.maxRuedas));
+        this.accesoriosMaxN.setText(Integer.toString(MaPlant.almacen.maxAccesorios));
+        
+    }//GEN-LAST:event_startBtnActionPerformed
+
+    private String getPath(){
+        JFileChooser selector = new JFileChooser(); 
+        selector.setFileFilter(new FileNameExtensionFilter("texto", "csv"));
+        selector.showOpenDialog(null); 
+        File f = selector.getSelectedFile(); 
+        String path = f.getAbsolutePath();
+        return path;
+    }
+    
     public boolean getSumMA(javax.swing.JSpinner spinner1, javax.swing.JSpinner spinner2, javax.swing.JSpinner spinner3, javax.swing.JSpinner spinner4, javax.swing.JSpinner spinner5, javax.swing.JSpinner spinner6){
         int sum = (Integer)spinner1.getValue()+ (Integer)spinner2.getValue() + (Integer)spinner3.getValue() + (Integer)spinner4.getValue() + (Integer)spinner5.getValue() + (Integer)spinner6.getValue();
         return sum > 14;
@@ -1285,6 +1400,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel listosTitle1;
     private javax.swing.JLabel listosTitleLA;
     private javax.swing.JLabel listosTitleMA;
+    private javax.swing.JButton loadDB;
     private javax.swing.JPanel maxAlmacenaje;
     private javax.swing.JLabel motor;
     private javax.swing.JLabel motorDispon;
@@ -1303,6 +1419,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel ruedasMaxN;
     private javax.swing.JPanel ruedasPanel;
     private javax.swing.JPanel ruedasPanelDispon;
+    private javax.swing.JButton startBtn;
     private javax.swing.JLabel sueldoFaltaLA;
     private javax.swing.JLabel sueldoFaltaMA;
     private javax.swing.JLabel tituloDispon;

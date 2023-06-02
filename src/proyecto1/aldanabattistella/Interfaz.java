@@ -31,8 +31,16 @@ public class Interfaz extends javax.swing.JFrame {
      * Creates new form Interfaz
      */
     public Interfaz() {
+        
         this.setResizable(false);
         initComponents();
+        
+        this.chasisPanel.setName("chasis");
+        this.carroceriaPanel.setName("carroceria");
+        this.motorPanel.setName("motor");
+        this.ruedasPanel.setName("rueda");
+        this.accesoriosPanel.setName("accesorio");
+        this.ensambladoresPanel.setName("vehiculo");
         
         int sMA = (Integer)MAChasis.getValue() + (Integer)MACarroceria.getValue() + (Integer)MAMotor.getValue() + (Integer)MARuedas.getValue() + (Integer)MAAccesorios.getValue() + (Integer)MAEnsambladores.getValue();
         empNMA.setText(Integer.toString(sMA));
@@ -964,6 +972,12 @@ public class Interfaz extends javax.swing.JFrame {
             maxSpinner = spinner6;
         }
         
+        Planta p = this.LaPlant;
+        if (chosenSpinner.getAlignmentX()<70){
+            p = this.MaPlant;
+        }
+        workerSwap(maxSpinner, chosenSpinner, p);
+        
         this.clickToChange = false;
         maxSpinner.setValue(maxN-1);
         this.clickToChange = true;
@@ -1004,6 +1018,27 @@ public class Interfaz extends javax.swing.JFrame {
         minSpinner.setValue(minN+1);
         this.clickToChange = true;
         
+        Planta p = this.LaPlant;
+        if (chosenSpinner.getAlignmentX()<70){
+            p = this.MaPlant;
+        }
+        workerSwap(chosenSpinner, minSpinner, p);
+        
+    }
+    
+    public void workerSwap(javax.swing.JSpinner fromSpinner, javax.swing.JSpinner toSpinner, Planta planta){
+        
+        String fromType = fromSpinner.getParent().getName();
+        String toType = toSpinner.getParent().getName();
+        
+        System.out.println("Cambiando trabajador de " + fromType + " por uno de " + toType + " en " + planta.name);
+        
+        for (Worker worker : planta.workers) {
+            if (worker.tipo.equals(fromType)) {
+                worker.tipo = toType;
+                break;
+            }
+        }
         
     }
     
